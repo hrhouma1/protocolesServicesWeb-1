@@ -77,20 +77,20 @@
 
 ---
 
-### <a name="introduction"></a> Introduction aux protocoles et modèles de référence réseau
+# <a name="introduction"></a> Introduction aux protocoles et modèles de référence réseau
 
 Ce chapitre est une introduction essentielle aux concepts fondamentaux des réseaux, en se concentrant sur les protocoles et les modèles de référence qui permettent à des dispositifs hétérogènes de communiquer entre eux. Vous comprendrez comment les réseaux sont structurés, les rôles que jouent différents types de réseaux, et les protocoles qui gouvernent ces communications.
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="objectifs"></a> Objectifs du Module
+# <a name="objectifs"></a> Objectifs du Module
 
 - **Titre du module:** Protocoles réseau
 - **Objectif du Module:** L'objectif principal de ce module est de vous fournir une compréhension approfondie des protocoles réseau et de la manière dont ils permettent d'exploiter pleinement le potentiel des réseaux, qu'il s'agisse de simples réseaux domestiques ou de réseaux mondiaux complexes. Vous apprendrez également comment ces protocoles sont essentiels pour la communication et le transfert de données.
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="processus-communications"></a> Processus de communications réseau
+# <a name="processus-communications"></a> Processus de communications réseau
 
 #### <a name="tailles-reseaux"></a> Réseaux de tailles diverses
 
@@ -160,7 +160,7 @@ Les FAI mondiaux de niveaux 1 et 2 relient certaines parties du web via des poin
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="protocoles-communication"></a> Protocoles de communication
+# <a name="protocoles-communication"></a> Protocoles de communication
 
 Les protocoles de communication sont les règles et normes qui définissent comment les données sont échangées sur un réseau. Ces protocoles permettent aux dispositifs de comprendre les messages qu'ils échangent, assurant ainsi une communication efficace et fiable.
 
@@ -267,7 +267,7 @@ Ces protocoles gèrent l'accès aux supports physiques sur lesquels les données
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="modele-osi"></a> Modèle de référence OSI
+# <a name="modele-osi"></a> Modèle de référence OSI
 
 Le modèle OSI (Open Systems Interconnection) est un modèle de référence standard qui décrit les fonctions d'un système de communication en termes de couches abstraites. Ce modèle aide à standardiser les communications réseau et à assurer l'interopérabilité entre les produits et les logiciels de différents fournisseurs.
 
@@ -303,7 +303,7 @@ La couche physique décrit les moyens mécaniques, électriques, fonctionnels et
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="modele-tcp-ip"></a> Le modèle de référence TCP/IP
+# <a name="modele-tcp-ip"></a> Le modèle de référence TCP/IP
 
 Le modèle TCP/IP est souvent appelé modèle Internet. Il décrit les fonctions des protocoles au sein de la suite TCP/IP et est utilisé comme modèle de référence pour l'interopérabilité des réseaux.
 
@@ -327,7 +327,7 @@ Elle contrôle les périphériques matériels et les supports qui constituent le
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="encapsulation-donnees"></a> L'encapsulation des données
+# <a name="encapsulation-donnees"></a> L'encapsulation des données
 
 L'encapsulation est un processus essentiel dans les communications réseau, où les données sont emballées avec les informations nécessaires à chaque couche pour la transmission sur le réseau.
 
@@ -374,7 +374,7 @@ Le segment TCP est ensuite encapsulé dans un paquet IP, avec des informations s
 
 Le processus de désencapsulation est l'inverse de l'encapsulation. À mesure que les données remontent la pile de protocoles, chaque en-tête est retiré et les données sont réassemblées pour être interprétées par l'application de l'utilisateur final.
 
-#### <a name="presentation-wireshark"></a> Travaux pratiques – Présentation de Wireshark
+# <a name="presentation-wireshark"></a> Travaux pratiques – Présentation de Wireshark
 
 ##### <a name="introduction-wireshark"></a> Introduction à Wireshark
 
@@ -386,7 +386,7 @@ Dans cette section pratique, vous apprendrez à capturer des paquets sur un rés
 
 [Retour à la Table des matières](#table-des-matieres)
 
-### <a name="recapitulation"></a> Récapitulation des protocoles du réseau
+# <a name="recapitulation"></a> Récapitulation des protocoles du réseau
 
 #### <a name="resume-concepts"></a> Résumé des concepts clés
 
@@ -402,3 +402,37 @@ Ce module a couvert un large éventail de concepts essentiels pour comprendre le
 - **Wireshark** est un outil puissant pour analyser les communications réseau en capturant et en décodant les PDU.
 
 [Retour à la Table des matières](#table-des-matieres)
+
+
+Voici une table récapitulative comparative détaillée des principaux protocoles réseau, incluant leurs fonctions, caractéristiques, et utilisations spécifiques.
+
+---
+
+# Tableau récapitulatif des protocoles réseau
+
+| **Protocole**            | **Couche du modèle OSI** | **Fonction principale**                                                 | **Caractéristiques clés**                                                                                       | **Utilisation typique**                                                                                          |
+|--------------------------|--------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| **HTTP (Hypertext Transfer Protocol)** | Application (Couche 7)       | Permet l'échange de fichiers hypertexte sur le Web.                      | Protocole sans état, utilisant TCP pour les connexions fiables.                                                   | Navigation web, accès aux sites internet, échanges de documents HTML, CSS, JS.                                    |
+| **HTTPS (HTTP Secure)**  | Application (Couche 7)    | Permet une version sécurisée de HTTP avec chiffrement SSL/TLS.           | Protocole sans état, ajoute un chiffrement à l'aide de SSL/TLS.                                                   | Accès sécurisé aux sites internet, transactions en ligne, transfert sécurisé d'informations sensibles.            |
+| **FTP (File Transfer Protocol)** | Application (Couche 7)       | Transfert de fichiers entre un client et un serveur.                     | Protocole de connexion, utilise TCP, peut être configuré pour des connexions actives ou passives.                 | Téléchargement et upload de fichiers sur un serveur, gestion de fichiers à distance.                              |
+| **SFTP (SSH File Transfer Protocol)** | Application (Couche 7)       | Transfert sécurisé de fichiers.                                          | Utilise SSH pour sécuriser le transfert de fichiers, encodage des données pendant le transfert.                   | Transfert de fichiers sécurisé, souvent utilisé pour les administrateurs système pour gérer les serveurs à distance. |
+| **TFTP (Trivial File Transfer Protocol)** | Application (Couche 7)       | Transfert simple de fichiers sans connexion.                              | Protocole sans connexion, utilise UDP, ne garantit pas la livraison.                                              | Transfert de petits fichiers, mise à jour de firmware, envoi de configurations de routeurs.                        |
+| **DNS (Domain Name System)** | Application (Couche 7)       | Conversion de noms de domaine en adresses IP.                             | Protocole hiérarchique, utilise UDP pour les requêtes rapides, TCP pour les transferts de zone.                   | Résolution de noms de domaine, navigation sur internet, recherche de services réseau.                              |
+| **SMTP (Simple Mail Transfer Protocol)** | Application (Couche 7)       | Envoi de courriers électroniques.                                        | Protocole de transfert de courriel, utilise TCP pour la fiabilité.                                                | Envoi de courriels entre serveurs de messagerie, transfert de courriels sortants.                                  |
+| **POP3 (Post Office Protocol version 3)** | Application (Couche 7)       | Récupération de courriels depuis un serveur de messagerie.               | Télécharge les courriels pour les stocker localement, supprime habituellement les messages du serveur après téléchargement. | Consultation des courriels sur un client de messagerie, accès hors ligne aux courriels.                            |
+| **IMAP (Internet Message Access Protocol)** | Application (Couche 7)       | Accès aux courriels sur un serveur de messagerie tout en les maintenant sur le serveur. | Permet la gestion des courriels directement sur le serveur, synchronisation en temps réel entre le client et le serveur. | Consultation des courriels sur plusieurs dispositifs, gestion centralisée des courriels sur le serveur.            |
+| **TCP (Transmission Control Protocol)** | Transport (Couche 4)         | Assure une transmission fiable et ordonnée des données.                  | Protocole de transport orienté connexion, utilise des accusés de réception, des numéros de séquence, et le contrôle de flux. | Transmission fiable de données, utilisé par HTTP, FTP, SMTP, et d'autres protocoles nécessitant une fiabilité élevée. |
+| **UDP (User Datagram Protocol)** | Transport (Couche 4)         | Assure une transmission rapide des données sans garantie de livraison.   | Protocole de transport sans connexion, faible surcharge, ne garantit pas la livraison des paquets.                | Streaming en temps réel, jeux en ligne, communications VoIP, DNS.                                                 |
+| **IPv4 (Internet Protocol version 4)** | Réseau (Couche 3)           | Acheminement des paquets de données entre les réseaux.                   | Utilise une adresse IP sur 32 bits, fragmentation et réassemblage des paquets.                                    | Identification et routage des paquets sur internet et les réseaux internes.                                        |
+| **IPv6 (Internet Protocol version 6)** | Réseau (Couche 3)           | Successeur d'IPv4 avec un espace d'adressage beaucoup plus vaste.        | Utilise une adresse IP sur 128 bits, intègre nativement des fonctionnalités comme l'autoconfiguration et la sécurité IPsec. | Routage des paquets sur les réseaux modernes, adressage pour les dispositifs IoT.                                  |
+| **NAT (Network Address Translation)** | Réseau (Couche 3)           | Traduction des adresses IP privées en adresses IP publiques uniques.     | Permet la réutilisation des adresses IP privées, masque l'architecture interne du réseau.                         | Connexion de réseaux internes à internet, partage d'une adresse IP publique entre plusieurs dispositifs.           |
+| **ICMP (Internet Control Message Protocol)** | Réseau (Couche 3)           | Diagnostics et gestion des erreurs dans les communications réseau.       | Utilisé par des outils comme `ping` et `traceroute`, pour envoyer des messages de diagnostic et des erreurs.       | Test de connectivité, détection de pannes, résolution de problèmes réseau.                                          |
+| **OSPF (Open Shortest Path First)** | Réseau (Couche 3)           | Protocole de routage qui détermine le chemin le plus court pour les paquets. | Protocole de routage à état de liaison, basé sur une conception hiérarchique, supporte le routage intra-domaine.  | Routage dynamique dans les grandes entreprises, gestion des routes internes dans les grandes infrastructures réseau. |
+| **BGP (Border Gateway Protocol)** | Réseau (Couche 3)           | Protocole de routage entre domaines pour connecter différents réseaux.   | Protocole de routage externe, utilise des politiques pour contrôler le routage entre AS (Autonomous Systems).     | Routage entre fournisseurs de services internet (ISP), gestion des routes sur l'internet global.                   |
+| **ARP (Address Resolution Protocol)** | Liaison de données (Couche 2) | Conversion des adresses IP en adresses MAC sur un réseau local.          | Protocole de résolution d'adresses, mappage dynamique, fonctionne au sein d'un réseau local.                      | Résolution d'adresses sur les réseaux locaux, permet la communication entre dispositifs au niveau de la couche liaison. |
+| **Ethernet**               | Liaison de données (Couche 2) | Standard de réseau pour les communications filaires.                     | Définit les règles pour les câblages, les trames de données, et les signaux électriques, prend en charge des vitesses jusqu'à 100 Gbps. | Réseaux locaux (LAN), réseaux d'entreprise, connexion entre dispositifs dans un bâtiment ou un campus.             |
+| **WLAN (Wireless Local Area Network)** | Liaison de données (Couche 2) | Standard de réseau pour les communications sans fil.                     | Utilise des fréquences radio (2,4 GHz et 5 GHz), supporte différentes normes (802.11a/b/g/n/ac/ax).                | Réseaux domestiques sans fil, réseaux sans fil dans les entreprises et les espaces publics.                         |
+
+---
+
+- Cette table récapitulative offre une vue d'ensemble complète des protocoles réseau les plus couramment utilisés, en détaillant leur rôle spécifique dans la pile du modèle OSI, leurs caractéristiques clés, et leurs cas d'utilisation typiques. 
