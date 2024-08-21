@@ -1,4 +1,3 @@
-Voici des réponses super détaillées pour les différentes sections de votre quiz sur les protocoles réseau et les modèles de référence.
 
 ### 1 - Questions à Choix Multiple (QCM)
 
