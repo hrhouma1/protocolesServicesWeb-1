@@ -384,9 +384,7 @@ Wireshark est un analyseur de protocoles (ou analyseur de paquets) utilisé pour
 
 Dans cette section pratique, vous apprendrez à capturer des paquets sur un réseau à l'aide de Wireshark et à analyser les informations encapsulées dans les PDU pour comprendre le fonctionnement des protocoles réseau en temps réel.
 
-[Retour à la Table des matières](#table-des-mat
-
-ieres)
+[Retour à la Table des matières](#table-des-matieres)
 
 ### <a name="recapitulation"></a> Récapitulation des protocoles du réseau
 
