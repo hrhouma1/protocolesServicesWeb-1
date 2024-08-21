@@ -225,9 +225,7 @@
 
 36. **Expliquez en détail le processus de résolution de noms de domaine à l'aide du protocole DNS.**
 
-37. **Décrivez comment les protocoles
-
- TCP/IP sont utilisés pour assurer la communication entre deux hôtes distants sur un réseau.**
+37. **Décrivez comment les protocoles TCP/IP sont utilisés pour assurer la communication entre deux hôtes distants sur un réseau.**
 
 38. **Discutez des avantages et des inconvénients d'utiliser le modèle OSI pour comprendre les communications réseau.**
 
