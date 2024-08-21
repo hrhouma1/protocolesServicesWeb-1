@@ -144,7 +144,7 @@
 
 30. **Expliquez la différence entre un serveur et un client dans une architecture réseau client-serveur.**
 
-# 2 - Questions de Correspondance
+# 3 - Questions de Correspondance
 
 31. **Associez les protocoles suivants à leur couche OSI correspondante :**
 
