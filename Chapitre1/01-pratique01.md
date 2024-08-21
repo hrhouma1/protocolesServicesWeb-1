@@ -266,3 +266,14 @@
 50. **Wireshark est utilisé pour capturer et analyser le trafic réseau en temps réel.**  
     - a) Vrai
     - b) Faux
+
+
+
+#### Question à Développement
+
+51. **Expliquez dans quels cas il est plus approprié d'utiliser le modèle OSI et dans quels cas il est préférable d'utiliser le modèle TCP/IP pour comprendre et analyser les communications réseau.**
+
+**Réponse attendue :**
+- **Modèle OSI :** Utilisé principalement à des fins pédagogiques pour expliquer les principes de base des communications réseau en couches distinctes. Il est idéal pour décomposer et comprendre chaque étape de la communication, de la couche physique à la couche application. Le modèle OSI est souvent utilisé pour concevoir des systèmes réseau ou pour résoudre des problèmes de compatibilité entre différents équipements ou logiciels.
+
+- **Modèle TCP/IP :** Utilisé dans les situations réelles, car il reflète plus précisément les protocoles et les technologies effectivement utilisés sur l'Internet et d'autres réseaux. Le modèle TCP/IP est préféré pour le dépannage, la configuration, et l'analyse des réseaux modernes, car il est directement aligné avec les protocoles qui sont en service, tels que TCP, IP, et les protocoles de la suite Internet.
