@@ -1,0 +1,6 @@
+- https://medium.com/@wintersoldiers/wireshark-fb72c22bfa5b
+- https://medium.com/@4ghora/wireshark-the-basics-df1d23c3ab40
+- https://systemweakness.com/wireshark-for-beginners-a-comprehensive-tutorial-with-best-use-cases-8abfed9dfd26
+- https://medium.com/@Bytecodesec/what-is-the-use-of-wireshark-in-ethical-hacking-340734426ac9#:~:text=Malware%20Analysis%3A%20Wireshark%20can%20be,patterns%20of%20the%20malicious%20software.
+- https://medium.com/@marazzax/task-4-sniffing-attack-using-wireshark-c997c808951c
+- http://testphp.vulnweb.com/
