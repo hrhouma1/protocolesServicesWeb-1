@@ -154,9 +154,7 @@
 
     - 1) Transfert de fichiers sécurisé : **a) SFTP**
     - 2) Résolution d'adresses IP en adresses MAC : **b) ARP**
-    - 3) Communication sans
-
- connexion : **c) UDP**
+    - 3) Communication sans connexion : **c) UDP**
     - 4) Chiffrement des sessions HTTP : **d) HTTPS**
     - 5) Transmission fiable avec accusés de réception : **e) TCP**
 
