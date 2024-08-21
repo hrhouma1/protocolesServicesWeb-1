@@ -1,5 +1,4 @@
-
-### 1 - Questions à Choix Multiple (QCM)
+# 1 - Questions à Choix Multiple (QCM)
 
 1. **Quelle couche du modèle OSI est responsable de l'encapsulation des données en segments ?**
    - **Réponse : c) Couche Transport**
@@ -81,7 +80,7 @@
     - **Réponse : a) BGP**
       - **Explication :** BGP (Border Gateway Protocol) est un protocole de routage extérieur utilisé pour l'échange de routes entre différents systèmes autonomes sur Internet. Il est essentiel pour le routage interdomaines, permettant à Internet de fonctionner de manière globale.
 
-### 2- Questions à Réponse Courte
+# 2- Questions à Réponse Courte
 
 21. **Décrivez le rôle du protocole DNS dans les communications réseau.**
    - **Réponse :** Le DNS (Domain Name System) est un service essentiel qui traduit les noms de domaine, tels que www.example.com, en adresses IP numériques que les dispositifs réseau peuvent comprendre. Il permet aux utilisateurs d'accéder à des sites web en utilisant des noms faciles à retenir plutôt que de devoir mémoriser des adresses IP complexes. Le DNS fonctionne
@@ -119,7 +118,7 @@
 30. **Expliquez la différence entre un serveur et un client dans une architecture réseau client-serveur.**
    - **Réponse :** Dans une architecture réseau client-serveur, le serveur est un dispositif ou un programme informatique qui fournit des ressources, des services, ou des données à d'autres dispositifs ou programmes appelés clients. Le client est l'élément qui initie une demande de service ou d'information au serveur. Par exemple, lorsque vous utilisez un navigateur web (client) pour accéder à un site web, le serveur web héberge les fichiers du site et répond aux requêtes du navigateur en envoyant les pages web demandées. L'architecture client-serveur est un modèle de communication largement utilisé, où le serveur centralise les ressources et les clients accèdent à ces ressources de manière distribuée.
 
-### 3 - Questions de Correspondance
+# 3 - Questions de Correspondance
 
 31. **Associez les protocoles suivants à leur couche OSI correspondante :**
 
@@ -198,7 +197,7 @@
     - **DNS** traduit les noms de domaine en adresses IP.
     - **ICMP** est utilisé par la commande `ping` pour tester la connectivité réseau.
 
-### 4 - Questions à Développement
+# 4 - Questions à Développement
 
 36. **Expliquez en détail le processus de résolution de noms de domaine à l'aide du protocole DNS.**
    - **Réponse :** La résolution de noms de domaine via DNS est un processus en plusieurs étapes qui permet de convertir un nom de domaine, comme www.example.com, en une adresse IP que les ordinateurs peuvent utiliser pour localiser le serveur approprié. Lorsque vous tapez une URL dans un navigateur web, voici ce qui se passe :
@@ -257,7 +256,7 @@
 45. **Comment Wireshark peut-il être utilisé pour analyser les communications réseau ? Donnez un exemple d'utilisation.**
    - **Réponse :** Wireshark est un outil puissant pour capturer et analyser le trafic réseau en temps réel. Par exemple, un administrateur réseau peut utiliser Wireshark pour surveiller le trafic HTTP sur un réseau local afin d'identifier des requêtes suspectes ou des attaques potentielles. En capturant les paquets, l'administrateur peut inspecter les en-têtes et les données pour repérer des anomalies comme des requêtes provenant d'adresses IP non autorisées ou des tentatives d'injection SQL. Wireshark permet également de filtrer le trafic par protocole, adresse IP, ou port, facilitant ainsi le diagnostic des problèmes et la surveillance de la sécurité du réseau.
 
-### 5 - Questions Vrai/Faux
+# 5 - Questions Vrai/Faux
 
 46. **IPv6 est un protocole de la couche Réseau dans le modèle OSI.**  
     - **Réponse : a) Vrai**
