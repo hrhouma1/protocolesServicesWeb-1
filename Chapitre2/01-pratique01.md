@@ -44,7 +44,7 @@ Non, le routeur n'est pas la destination finale de ces paquets ICMP. Le routeur 
 Ces informations vous confirment que votre réseau est bien configuré pour acheminer les paquets vers et depuis l'extérieur, avec un temps de latence très faible, ce qui est idéal pour des tests de connectivité réseau comme celui-ci.
 
 ---
-# Annexe 1 - Explication Exhaustive des Paquets ICMP dans Wireshark pour Débutants
+# Annexe 1 - Explication Exhaustive des Paquets ICMP dans Wireshark détaillée
 ---
 
 #### Contexte
