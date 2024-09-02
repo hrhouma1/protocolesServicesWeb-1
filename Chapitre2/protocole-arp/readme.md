@@ -10,9 +10,6 @@ Avant de commencer les ateliers, il est fortement recommandé de visionner les v
 - **Vidéo 1 :** [Comprendre la table CAM et le protocole ARP](https://www.youtube.com/watch?v=e_k5K9MB-Mo)
 - **Vidéo 2 :** [Explications détaillées du fonctionnement du protocole ARP](https://www.youtube.com/watch?v=SiOkTKrcjwo)
 
-- https://www.youtube.com/watch?v=e_k5K9MB-Mo
-- https://www.youtube.com/watch?v=SiOkTKrcjwo
-
 
 --------
 ## Introduction
