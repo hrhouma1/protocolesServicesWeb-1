@@ -308,4 +308,4 @@ Vous devez organiser un réseau IP de classe C, `192.168.1.0/24`, en plusieurs s
 
 # Exercice 3
 ----
-## Animé par le professeur en classe 
+## Animée par le professeur en classe 
