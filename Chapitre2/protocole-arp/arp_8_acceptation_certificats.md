@@ -1,6 +1,19 @@
-Oui, il est effectivement possible que les machines victimes doivent accepter les certificats générés par `mitmproxy` pour que les requêtes HTTP soient correctement interceptées et affichées sans erreurs.
 
-Voici les étapes pour installer les certificats `mitmproxy` sur les machines victimes :
+# **Question :** 
+
+- Pourquoi est-il nécessaire d'installer les certificats `mitmproxy` sur les machines victimes lors d'une attaque Man-in-the-Middle, et quelles sont les étapes à suivre pour installer correctement ces certificats sur des machines Linux ?
+
+**Réponse :**  
+Il est nécessaire d'installer les certificats `mitmproxy` sur les machines victimes pour permettre à `mitmproxy` d'intercepter correctement les requêtes HTTP sans provoquer d'erreurs liées à la validation des certificats. Voici les étapes à suivre pour installer les certificats sur des machines Linux :
+
+1. **Générer et exporter le certificat `mitmproxy`** sur la machine attaquante.
+2. **Copier le certificat** sur les machines victimes en utilisant une commande comme `scp`.
+3. **Installer le certificat** sur les machines victimes en le plaçant dans le répertoire des autorités de certification et en mettant à jour les certificats.
+4. **Redémarrer les navigateurs** sur les machines victimes pour appliquer les nouveaux certificats.
+
+
+- Les machines victimes doivent accepter les certificats générés par `mitmproxy` pour que les requêtes HTTP soient correctement interceptées et affichées sans erreurs.
+- Voici les étapes pour installer les certificats `mitmproxy` sur les machines victimes :
 
 ### Étape 1 : Générer et Exporter le Certificat `mitmproxy`
 
