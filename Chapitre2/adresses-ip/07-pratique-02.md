@@ -378,6 +378,54 @@ Pour vérifier vos calculs, vous pouvez utiliser la calculatrice CIDR d'iplocate
    
 3. **Analyse :** En cas de différences, examinez les calculs manuels pour comprendre et corriger les erreurs, renforçant ainsi votre compréhension.
 
+
+---
+# calculatrice CIDR - https://www.iplocate.com/fr/tools/cidr-calculator
+---
+- https://www.iplocate.com/fr/tools/cidr-calculator
+
+  
+1. **Adresse IP :**  
+   Saisissez votre adresse IP ou celle qui vous est donnée, par exemple : `172.70.110.92`.
+
+2. **Masque du réseau CIDR :**  
+   Sélectionnez `128.0.0.0` dans le menu déroulant. Ce masque correspond à un CIDR avec un seul bit de masque activé, ce qui est une configuration très large.
+
+3. **Bits du masque :**  
+   Choisissez `1` dans la liste des bits du masque. Cela signifie que seul le premier bit est utilisé pour déterminer le réseau.
+
+4. **Masque wildcard :**  
+   Vous verrez automatiquement le masque wildcard correspondant apparaître, soit `127.255.255.255`. Ce masque représente les bits disponibles pour les adresses d'hôtes.
+
+5. **Nombre maximal de sous-réseaux :**  
+   Le nombre de sous-réseaux possible sera affiché comme `2147483648`. Vous n'avez rien à saisir ici, mais assurez-vous de noter ce nombre.
+
+6. **Nombre maximal d’adresses :**  
+   Le nombre total d'adresses IP disponibles dans ce réseau sera calculé automatiquement : `2147483646`. Cela représente toutes les adresses possibles moins celles réservées pour le réseau et la diffusion.
+
+7. **Réseau CIDR (Route) :**  
+   Le réseau de base associé sera `128.0.0.0`. Ce champ est également généré automatiquement.
+
+8. **Réseau : Notation CIDR :**  
+   La notation CIDR résultante, `128.0.0.0/1`, sera affichée. Cela signifie que le masque couvre la moitié des adresses IP possibles sur IPv4.
+
+9. **Plage d'adresses CIDR :**  
+   La plage d'adresses correspondante, allant de `128.0.0.0` à `255.255.255.255`, sera affichée. Prenez note de cette plage car elle est importante pour comprendre l'étendue du réseau couvert par ce CIDR.
+
+### Ce que les Étudiants Doivent Faire :
+
+- **Entrez les valeurs demandées.**
+- **Notez les résultats générés par la calculatrice.**
+- **Comparez ces résultats avec les concepts théoriques appris en classe.**
+- **Réfléchissez à l'ampleur du réseau couvert par un CIDR aussi large et pourquoi de telles configurations pourraient être utilisées.**
+
+### Objectif de l'Exercice :
+
+Cet exercice vise à vous familiariser avec l'utilisation d'une calculatrice CIDR pour comprendre les concepts de masques de sous-réseau, de plages d'adresses IP, et de l'importance des notations CIDR dans la gestion des réseaux.
+
+
+----
 ### Conclusion
+----
 
 Cette correction exhaustive, avec une comparaison détaillée à l'aide de tables, permet de mieux comprendre les concepts de CIDR, la gestion des adresses IP, et l'importance de l'utilisation de notations binaires et hexadécimales dans l'analyse des réseaux. Ces compétences sont essentielles pour la conception et la gestion des réseaux IP.
