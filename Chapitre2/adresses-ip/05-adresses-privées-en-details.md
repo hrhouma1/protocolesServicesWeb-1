@@ -1,5 +1,5 @@
 # Introduction
- Voyons donc la relation entre les adresses IP privées (10.x.x.x, 172.16.x.x, 192.168.x.x) et les classes A, B, C. 
+L'objectif est d'étudier la relation entre les adresses IP privées (10.x.x.x/8, 172.16.x.x/12, 192.168.x.x/16) et les classes A, B, C, ..
 
 ------
 # 01 - Relation entre les Adresses IP Privées et les Classes d'Adresses
