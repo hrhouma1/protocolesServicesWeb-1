@@ -150,7 +150,7 @@ Maintenant que vos machines sont configurées, nous allons procéder à l'exerci
 ---
 ---
 ---
-# **Résumé pédagogique :**
+# **Résumé :**
 
 1. **Ping par IP** : Cela fonctionne, ce qui signifie que les deux machines peuvent communiquer via leurs adresses IP.
 2. **Ping par nom d’hôte** : Cela échoue, car **NetBIOS** et **la découverte réseau** sont désactivés, donc les machines ne peuvent pas résoudre les noms d’hôtes sans serveur DNS.
