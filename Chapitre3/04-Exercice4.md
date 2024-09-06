@@ -74,7 +74,7 @@
 
 ---
 
-# **Conclusion pédagogique :**
+# **Conclusion :**
 
 1. **Ping par le nom d’hôte** avec **NetBIOS** activé fonctionne, et dans ce cas particulier, la réponse provient de l’adresse **IPv6** de **Serv1**, car **IPv6** est activé.
 2. **La fenêtre Réseau** reste vide, même avec **NetBIOS** activé, car la **découverte réseau** est désactivée. **NetBIOS** n'est pas responsable de l'affichage des machines dans cette fenêtre.
