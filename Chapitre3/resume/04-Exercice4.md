@@ -1,7 +1,3 @@
-Voici une explication détaillée de l'**Exercice 4**, étape par étape, adaptée à vos étudiants débutants. Cet exercice implique la configuration de l’IPv4 et IPv6 avec **NetBIOS activé** et **découverte réseau désactivée**. L’objectif est d’observer comment la résolution des noms fonctionne dans ce contexte.
-
----
-
 ### **Exercice 4 : Test de résolution automatique de noms sur un groupe de travail IPv4/IPv6, avec NetBIOS activé et Découverte réseau désactivée**
 
 #### **Objectifs :**
@@ -86,10 +82,9 @@ Voici une explication détaillée de l'**Exercice 4**, étape par étape, adapt�
 
 ---
 
-### **Conseils pour les étudiants :**
+### **Conseils :**
 
 - **NetBIOS** facilite la résolution des noms sur un réseau local en IPv4 ou IPv6. Si vous activez **IPv6** sur votre réseau, les systèmes peuvent utiliser les adresses IPv6 sans pour autant perdre la fonctionnalité d’IPv4.
 - **La découverte réseau** doit être activée si vous voulez voir les autres machines dans l'explorateur **Réseau**. Sans cela, même si vous pouvez pinguer les machines ou accéder à leurs fichiers, elles n'apparaîtront pas dans la fenêtre **Réseau**.
 - **IPv6** ne supprime pas les fonctionnalités existantes d’un réseau **IPv4** ; il ajoute simplement une autre manière de communiquer entre les machines.
 
-N’hésitez pas à me demander si quelque chose n’est pas clair ou si vos étudiants ont besoin de plus d'explications sur certaines parties de cet exercice !
