@@ -95,7 +95,7 @@
 
 ---
 
-# **Conclusion pédagogique :**
+# **Conclusion :**
 
 1. **Ping via le nom d’hôte** fonctionne grâce à **NetBIOS**, même sans serveur DNS, ce qui prouve que NetBIOS est un mécanisme de résolution de noms pour les réseaux locaux IPv4.
 2. **Accès aux fichiers via chemin UNC** fonctionne également via le nom d’hôte grâce à **NetBIOS**, prouvant que cette technologie résout bien les noms d'ordinateurs locaux dans les chemins UNC.
