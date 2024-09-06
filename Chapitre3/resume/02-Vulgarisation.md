@@ -40,3 +40,29 @@ LLMNR utilise un port spécial (5355/UDP), comme si tu disais à tes amis "Envoy
 #### Pourquoi utiliser LLMNR dans la vraie vie ?
 
 Si tu es dans une petite fête avec tes amis (un petit réseau), tu n’as pas besoin de mettre en place un système ultra-complexe comme le DNS. LLMNR te permet simplement de demander "Qui est là ?" sans avoir besoin d’un grand carnet d’adresses. C’est rapide, facile, et parfait pour des situations simples.
+
+-----------
+-----------
+-------------
+
+# table comparative entre DNS, LLMNR et NetBIOS/WINS  :
+
+| **Caractéristique**            | **DNS (Domain Name System)**                            | **LLMNR (Link Local Multicast Name Resolution)** | **NetBIOS/WINS**                                 |
+|---------------------------------|---------------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
+| **Utilisation principale**      | Résolution de noms sur Internet et dans les grandes infrastructures comme Active Directory | Résolution de noms dans des petits réseaux locaux sans DNS | Résolution de noms dans les anciens réseaux Windows |
+| **Infrastructure requise**      | Serveur DNS nécessaire (configuration parfois complexe) | Aucun serveur nécessaire, fonctionne de manière locale | Nécessite WINS pour fonctionner dans de grands réseaux |
+| **Port utilisé**                | 53 (UDP/TCP)                                            | 5355 (UDP)                                      | 137, 138, 139 (UDP/TCP)                          |
+| **Type de communication**       | Unicast (demande spécifique à un serveur DNS)           | Multicast (demande envoyée à plusieurs ordinateurs du réseau local) | Broadcast (envoie à tous les ordinateurs du réseau) |
+| **Compatibilité avec IPv6**      | Oui                                                     | Oui                                             | Non                                              |
+| **Domaine d’application**       | Réseaux d’entreprise, Internet, Active Directory        | Petits réseaux locaux sans infrastructure DNS   | Petits réseaux ou anciens systèmes Windows       |
+| **Performance**                 | Haute performance dans les grands réseaux               | Suffisante pour les petits réseaux              | Moins performant et moins sécurisé               |
+| **Découverte réseau**           | Non nécessaire                                          | Nécessaire (doit être activée)                  | Nécessaire (dépend de NetBIOS)                   |
+| **Sécurité**                    | Peut être sécurisé (via DNSSEC)                         | Moins sécurisé, plus vulnérable aux attaques réseau | Vulnérable aux attaques réseau (ancien protocole)|
+| **Complexité de mise en place** | Complexe (configuration serveur et client)              | Simple (fonctionne par défaut sur les machines locales) | Plutôt simple mais obsolète                      |
+
+### Explication simplifiée :
+
+- **DNS** est comme un carnet d'adresses utilisé dans les grandes entreprises ou sur Internet. Il est efficace mais nécessite une configuration.
+- **LLMNR** est utilisé dans des petits groupes, comme si tu criais dans une pièce pour trouver quelqu’un. Il ne nécessite pas de configuration compliquée.
+- **NetBIOS/WINS** est une méthode plus ancienne, utilisée principalement dans des réseaux avec de vieux systèmes, mais elle est moins performante et plus vulnérable.
+
