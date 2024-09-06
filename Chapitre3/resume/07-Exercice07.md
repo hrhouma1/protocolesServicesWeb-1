@@ -1,8 +1,4 @@
-Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour des étudiants débutants. Cet exercice se concentre sur le comportement du réseau dans un environnement **IPv6 seulement**, avec **découverte réseau activée** et **IPv4 désactivé**.
-
----
-
-### **Exercice 7 : Scénario IPv6 uniquement, avec découverte réseau**
+# **Exercice 7 : Scénario IPv6 uniquement, avec découverte réseau**
 
 #### **Objectifs :**
 - Désactiver **IPv4** et activer **IPv6**.
@@ -11,7 +7,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **1. Activer IPv6 et désactiver IPv4 sur Serv1 et Serv2 :**
+# **1. Activer IPv6 et désactiver IPv4 sur Serv1 et Serv2 :**
 
    **Explication** : L'objectif de cet exercice est de basculer vers un réseau **IPv6 uniquement**, sans **IPv4**. **NetBIOS**, qui est utilisé pour la résolution des noms dans **IPv4**, ne fonctionne pas avec **IPv6**. Nous allons utiliser la **découverte réseau** pour permettre la résolution des noms dans un réseau **IPv6**.
 
@@ -31,7 +27,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **2. Redémarrer les deux machines :**
+# **2. Redémarrer les deux machines :**
 
    **Explication** : Le redémarrage est nécessaire après toute modification des paramètres réseau pour s'assurer que les changements sont appliqués correctement.
 
@@ -43,7 +39,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **3. Tester la connectivité via ping avec IPv6 :**
+# **3. Tester la connectivité via ping avec IPv6 :**
 
    **Explication** : Une fois que les machines ont redémarré et que **IPv6** est activé (et **IPv4** désactivé), vous allez tester si **Serv2** peut pinguer **Serv1** par son nom. Dans un réseau **IPv6**, la **découverte réseau** joue le rôle de **NetBIOS** dans **IPv4** et permet la résolution des noms.
 
@@ -57,7 +53,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **4. Vérifier la fenêtre Réseau :**
+# **4. Vérifier la fenêtre Réseau :**
 
    **Explication** : Dans les réseaux **IPv6**, la **découverte réseau** permet aux ordinateurs de se voir et de se connecter les uns aux autres sans utiliser de serveur **DNS** ou de service comme **NetBIOS**. Nous allons maintenant vérifier si **Serv1** apparaît dans la fenêtre **Réseau** de **Serv2**.
 
@@ -67,7 +63,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **5. Essayer d'accéder à Serv1 via la fenêtre Réseau :**
+# **5. Essayer d'accéder à Serv1 via la fenêtre Réseau :**
 
    **Explication** : Une fois que **Serv1** apparaît dans la fenêtre **Réseau**, vous pouvez y accéder en double-cliquant sur son icône. Cela prouve que la **découverte réseau** permet non seulement de voir les machines dans le réseau, mais aussi d'accéder à leurs ressources partagées dans un environnement **IPv6**.
 
@@ -76,7 +72,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **6. Tester l'accès via un chemin UNC en IPv6 :**
+# **6. Tester l'accès via un chemin UNC en IPv6 :**
 
    **Explication** : Le chemin **UNC** (Universal Naming Convention) permet d'accéder aux ressources partagées sur un réseau en utilisant le nom d’hôte, par exemple `\\Serv1`. Dans un réseau **IPv4**, **NetBIOS** est requis pour cette fonctionnalité. En **IPv6**, c'est la **découverte réseau** qui permet de résoudre les noms d'hôte.
 
@@ -90,7 +86,7 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **7. Réessayer via la fenêtre Réseau :**
+# **7. Réessayer via la fenêtre Réseau :**
 
    **Explication** : Vous pouvez à nouveau vérifier si **Serv1** apparaît dans la fenêtre **Réseau** et si vous pouvez y accéder sans problème. Cela montre que la **découverte réseau** en **IPv6** fonctionne de la même manière que dans un réseau **IPv4**, où **NetBIOS** permettait une résolution des noms et un accès aux ressources partagées.
 
@@ -100,13 +96,13 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **8. Fermer toutes les fenêtres ouvertes :**
+# **8. Fermer toutes les fenêtres ouvertes :**
 
    - Une fois que vous avez terminé toutes les vérifications, fermez toutes les fenêtres ouvertes sur **Serv1** et **Serv2**.
 
 ---
 
-### **Conclusion pédagogique :**
+# **Conclusion **
 
 1. **Ping par nom d’hôte** : Dans un réseau **IPv6** uniquement, la **découverte réseau** permet la résolution des noms et remplace **NetBIOS**, qui n’est utilisé que dans **IPv4**. Vous pouvez pinguer une machine par son nom d’hôte sans avoir besoin d'un serveur **DNS**.
    
@@ -116,14 +112,9 @@ Voici une explication **très détaillée** de l'**Exercice 7**, conçue pour de
 
 ---
 
-### **Conseils pour les étudiants :**
+### **Conseils **
 
 - **IPv6** est le futur de l'Internet, car il offre un plus grand espace d’adressage que **IPv4**. Dans ce type de réseau, la **découverte réseau** est cruciale pour la résolution des noms d’hôte et l'accès aux machines du réseau.
-- **NetBIOS** est utilisé uniquement dans les réseaux **IPv4**. Il est remplacé par la **découverte réseau** dans les réseaux **
-
-IPv6**, qui joue un rôle similaire pour résoudre les noms et permettre l'accès aux ressources partagées.
+- **NetBIOS** est utilisé uniquement dans les réseaux **IPv4**. Il est remplacé par la **découverte réseau** dans les réseaux **IPv6**, qui joue un rôle similaire pour résoudre les noms et permettre l'accès aux ressources partagées.
 - Comprendre les différences entre **IPv4** et **IPv6** ainsi que leurs mécanismes de résolution des noms est essentiel pour travailler dans des environnements réseau modernes.
 
----
-
-N’hésitez pas à me demander des clarifications supplémentaires si certaines étapes ne sont pas claires pour vos étudiants !
