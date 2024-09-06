@@ -101,7 +101,8 @@
    - Une fois que vous avez terminé toutes les vérifications, fermez toutes les fenêtres ouvertes sur **Serv1** et **Serv2**.
 
 ---
-# **Conclusion **
+
+# Conclusion 
 
 1. **Ping par nom d’hôte** : Dans un réseau **IPv6** uniquement, la **découverte réseau** permet la résolution des noms et remplace **NetBIOS**, qui n’est utilisé que dans **IPv4**. Vous pouvez pinguer une machine par son nom d’hôte sans avoir besoin d'un serveur **DNS**.
    
@@ -110,7 +111,8 @@
 3. **Accès via chemin UNC** : Dans un réseau **IPv6**, vous pouvez accéder aux ressources partagées en utilisant un chemin **UNC** (comme `\\Serv1`), grâce à la **découverte réseau**. Cela prouve que la **découverte réseau** en **IPv6** offre des services de résolution de noms et d'accès aux ressources partagées similaires à ceux de **NetBIOS** en **IPv4**.
 
 ---
-### **Conseils **
+
+# Conseils
 
 - **IPv6** est le futur de l'Internet, car il offre un plus grand espace d’adressage que **IPv4**. Dans ce type de réseau, la **découverte réseau** est cruciale pour la résolution des noms d’hôte et l'accès aux machines du réseau.
 - **NetBIOS** est utilisé uniquement dans les réseaux **IPv4**. Il est remplacé par la **découverte réseau** dans les réseaux **IPv6**, qui joue un rôle similaire pour résoudre les noms et permettre l'accès aux ressources partagées.
