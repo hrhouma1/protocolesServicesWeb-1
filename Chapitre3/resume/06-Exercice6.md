@@ -1,8 +1,4 @@
-Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les étudiants débutants, avec des explications à chaque étape pour bien comprendre comment **NetBIOS** et la **découverte réseau** interagissent dans un réseau **IPv4**.
-
----
-
-### **Exercice 6 : Scénario IPv4 avec NetBIOS et découverte réseau activés**
+# **Exercice 6 : Scénario IPv4 avec NetBIOS et découverte réseau activés**
 
 #### **Objectifs :**
 - Activer **NetBIOS** pour permettre la résolution des noms dans un réseau **IPv4**.
@@ -11,7 +7,7 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **1. Activer NetBIOS et désactiver IPv6 sur Serv1 et Serv2 :**
+# **1. Activer NetBIOS et désactiver IPv6 sur Serv1 et Serv2 :**
 
    **Explication** : **NetBIOS** est responsable de la résolution des noms dans les réseaux **IPv4** sans serveur DNS. En activant **NetBIOS**, vous permettez à vos machines de se "trouver" et de communiquer facilement via leurs noms d'hôte. La **découverte réseau** vous permet de voir les machines dans la fenêtre **Réseau** de Windows.
 
@@ -34,7 +30,7 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **2. Redémarrer les deux machines :**
+# **2. Redémarrer les deux machines :**
 
    **Explication** : Après avoir modifié les paramètres réseau, un redémarrage des deux machines est nécessaire pour appliquer les changements et s'assurer que **NetBIOS** est activé correctement.
 
@@ -46,7 +42,7 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **3. Tester la connectivité via ping avec NetBIOS activé :**
+# **3. Tester la connectivité via ping avec NetBIOS activé :**
 
    **Explication** : Après le redémarrage, vous allez tester la connectivité entre **Serv1** et **Serv2** via **ping** en utilisant le **nom d’hôte**. Avec **NetBIOS** activé, **Serv2** pourra pinguer **Serv1** en résolvant automatiquement le nom **Serv1** en adresse IP (sans avoir besoin de DNS).
 
@@ -60,7 +56,7 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **4. Vérifier la fenêtre Réseau :**
+# **4. Vérifier la fenêtre Réseau :**
 
    **Explication** : Une fois que **NetBIOS** et la **découverte réseau** sont activés, vous pouvez voir les machines du réseau dans la fenêtre **Réseau** de l'Explorateur Windows. Cela montre que la **découverte réseau** permet de rendre visibles les machines et que **NetBIOS** permet de les pinguer et d’y accéder.
 
@@ -70,7 +66,7 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **5. Essayer d'accéder à Serv1 via la fenêtre Réseau :**
+# **5. Essayer d'accéder à Serv1 via la fenêtre Réseau :**
 
    **Explication** : Avec **NetBIOS** et la **découverte réseau** activés, vous pouvez non seulement voir **Serv1** dans la fenêtre **Réseau**, mais vous pouvez également y accéder. En double-cliquant sur l'icône de **Serv1**, vous tenterez d'ouvrir une connexion via un chemin **UNC** (par exemple `\\Serv1`).
 
@@ -79,13 +75,13 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **6. Fermer toutes les fenêtres ouvertes :**
+# **6. Fermer toutes les fenêtres ouvertes :**
 
    - Une fois les tests terminés, fermez toutes les fenêtres ouvertes sur **Serv1** et **Serv2**.
 
 ---
 
-### **Conclusion pédagogique :**
+# **Conclusion pédagogique :**
 
 1. **Ping par nom d’hôte** : Avec **NetBIOS** activé, vous pouvez pinguer une machine par son **nom d’hôte** dans un réseau **IPv4** sans serveur DNS. Cela montre que **NetBIOS** permet la résolution des noms locaux.
    
@@ -95,12 +91,8 @@ Voici une correction **très détaillée** de l'**Exercice 6**, conçue pour les
 
 ---
 
-### **Conseils supplémentaires pour les étudiants :**
+# **Conseils supplémentaires **
 
 - **NetBIOS** est une fonctionnalité importante dans les réseaux **IPv4** sans DNS, car elle permet de résoudre les noms d'ordinateurs locaux (comme **Serv1** ou **Serv2**) en adresses IP. Cela facilite la communication entre les machines.
 - **La découverte réseau** est une fonctionnalité qui permet de voir les machines connectées au réseau dans la fenêtre **Réseau** de Windows. Cependant, cette fonctionnalité ne permet pas à elle seule de résoudre les noms (comme le fait **NetBIOS**).
 - En combinant **NetBIOS** et **découverte réseau**, vous pouvez à la fois voir les machines sur le réseau et communiquer avec elles en utilisant leurs noms d’hôtes (par exemple, pinguer ou accéder aux dossiers partagés via **UNC**).
-
----
-
-N’hésitez pas à demander plus d’explications ou de précisions si certains points ne sont pas clairs pour vos étudiants !
