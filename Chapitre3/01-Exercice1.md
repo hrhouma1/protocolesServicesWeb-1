@@ -2,6 +2,8 @@
 # **Étapes préliminaires – Configuration de Serv1 et Serv2**
 ----
 
+# Exercice 1
+
 ![image](https://github.com/user-attachments/assets/ea626b9b-92d6-47bd-94c3-f14ccd79c1b8)
 
 # **1. Créer deux machines virtuelles exécutant Windows Server 2019/2022 :**
