@@ -116,7 +116,7 @@
 
 ---
 
-# **Conclusion pédagogique :**
+# **Conclusion :**
 
 1. **La découverte réseau** permet de voir les machines dans la fenêtre **Réseau**, mais elle ne remplace pas **NetBIOS** pour la résolution des noms. Même si vous pouvez voir **Serv1** dans la fenêtre **Réseau**, vous ne pourrez pas pinguer cette machine ou vous y connecter par son nom.
    
