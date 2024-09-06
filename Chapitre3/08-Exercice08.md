@@ -91,7 +91,7 @@
 ---
 ---
 
-# **Conclusion pédagogique :**
+# **Conclusion :**
 
 1. **Ping via IPv6** : Dans ce scénario, avec **IPv4**, **IPv6**, **NetBIOS**, et **la découverte réseau** activés, c’est **LLMNR** qui résout les noms d’hôte lorsqu'il n'y a pas de **DNS**. Par défaut, **LLMNR** favorise **IPv6** pour la résolution des noms, ce qui explique pourquoi le ping retourne une adresse **IPv6**.
    
