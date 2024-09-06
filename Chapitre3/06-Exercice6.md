@@ -81,7 +81,7 @@
 
 ---
 
-# **Conclusion pédagogique :**
+# **Conclusion :**
 
 1. **Ping par nom d’hôte** : Avec **NetBIOS** activé, vous pouvez pinguer une machine par son **nom d’hôte** dans un réseau **IPv4** sans serveur DNS. Cela montre que **NetBIOS** permet la résolution des noms locaux.
    
