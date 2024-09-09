@@ -161,3 +161,32 @@ Maintenant que vos machines sont configurées, nous allons procéder à l'exerci
 5. **Découverte réseau désactivée** : Les machines ne sont pas visibles dans la fenêtre Réseau.
 
 
+
+
+----
+# Annexe : **Pourquoi le ping par nom d'hôte fonctionne-t-il même après la désactivation de NetBIOS ?**
+----
+
+Le fait que le ping de `Serv1` fonctionne par le nom d'hôte peut indiquer que le nom d'hôte est résolu d'une autre manière que par NetBIOS.
+
+# ==> Explications possibles :
+
+1. **Cache de résolution DNS locale** : Si vous avez déjà résolu `Serv1` par son nom d'hôte auparavant (avant de désactiver NetBIOS), l'adresse IP de `Serv1` pourrait être encore stockée dans le cache DNS local de la machine. Ce cache permet la résolution sans qu'il soit nécessaire de passer par NetBIOS ou DNS à chaque fois. Vous pouvez vérifier cela en vidant le cache DNS avec la commande suivante :
+   ```
+   ipconfig /flushdns
+   ```
+   Ensuite, essayez de refaire un ping avec le nom d'hôte.
+
+2. **Fichier `hosts`** : Si l'adresse IP de `Serv1` a été ajoutée manuellement dans le fichier `hosts` de Windows (situé à `C:\Windows\System32\drivers\etc\hosts`), la résolution de noms via ce fichier fonctionnera même sans DNS ou NetBIOS. Vous pouvez vérifier ce fichier pour voir si `Serv1` est présent.
+
+3. **DNS fonctionnel** : Il est possible qu'un serveur DNS soit déjà configuré et résolve les noms d'hôtes même si vous pensiez qu'il n'était pas en place. Pour vérifier si un serveur DNS est configuré, vous pouvez exécuter la commande suivante sur la machine :
+   ```
+   ipconfig /all
+   ```
+   Recherchez la section "Serveurs DNS" pour voir s'il y a une adresse IP configurée pour un serveur DNS.
+
+4. **NetBIOS toujours actif sur certaines interfaces** : Si vous avez plusieurs cartes réseau sur vos serveurs (par exemple, une carte réseau physique et une carte virtuelle), il se peut que NetBIOS soit encore activé sur l'une d'entre elles. Vérifiez que NetBIOS est bien désactivé sur toutes les interfaces réseau de chaque serveur.
+
+En résumé, si le ping fonctionne via le nom d'hôte, cela signifie que la résolution des noms se fait probablement via un autre mécanisme (DNS ou fichier `hosts`). 
+
+- Vous pouvez examiner les points mentionnés pour identifier pourquoi la résolution fonctionne malgré la désactivation de NetBIOS.
