@@ -140,6 +140,7 @@ nbtstat -R
    - Tapez la commande suivante pour vider le cache NetBIOS :
      ```bash
      nbtstat -R
+     NBTStat -c
      ```
    - Appuyez sur **Entrée**.
 
