@@ -162,9 +162,10 @@ Maintenant que vos machines sont configurées, nous allons procéder à l'exerci
 
 
 
-
 ----
-# Annexe : **Pourquoi le ping par nom d'hôte fonctionne-t-il même après la désactivation de NetBIOS ?**
+----
+----
+# Annexe 1 : **Pourquoi le ping par nom d'hôte fonctionne-t-il même après la désactivation de NetBIOS ?**
 ----
 
 Le fait que le ping de `Serv1` fonctionne par le nom d'hôte peut indiquer que le nom d'hôte est résolu d'une autre manière que par NetBIOS.
@@ -190,3 +191,45 @@ Le fait que le ping de `Serv1` fonctionne par le nom d'hôte peut indiquer que l
 En résumé, si le ping fonctionne via le nom d'hôte, cela signifie que la résolution des noms se fait probablement via un autre mécanisme (DNS ou fichier `hosts`). 
 
 - Vous pouvez examiner les points mentionnés pour identifier pourquoi la résolution fonctionne malgré la désactivation de NetBIOS.
+
+
+---
+----
+-----
+
+# **Annexe 2 : Vider le cache NetBIOS**
+
+---
+
+Pour vider le cache NetBIOS sur un système Windows, vous pouvez utiliser la commande suivante dans l'invite de commandes :
+
+```bash
+nbtstat -R
+```
+
+### **Explication de la commande :**
+- **`nbtstat -R`** : Cette commande vide le cache NetBIOS des noms résolus et force la mise à jour des entrées de noms NetBIOS enregistrés.
+
+---
+
+### **Étapes détaillées :**
+1. **Ouvrir l'invite de commandes en tant qu'administrateur** :
+   - Cliquez sur **Démarrer**, tapez **cmd**, faites un clic droit sur **Invite de commandes**, puis sélectionnez **Exécuter en tant qu'administrateur**.
+
+2. **Exécuter la commande** :
+   - Tapez la commande suivante pour vider le cache NetBIOS :
+     ```bash
+     nbtstat -R
+     ```
+   - Appuyez sur **Entrée**.
+
+3. **Confirmation** :
+   - Après l'exécution, vous verrez un message indiquant que le cache NetBIOS a été vidé.
+
+---
+
+### **Utilité :**
+- Cette commande est utile pour résoudre les problèmes de résolution des noms NetBIOS, surtout après des modifications sur le réseau ou sur les configurations d'adresses IP des ordinateurs.
+
+---
+
