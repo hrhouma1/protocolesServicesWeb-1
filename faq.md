@@ -23,6 +23,47 @@
 6. **Quelles techniques un hacker professionnel utilise-t-il pour garantir son anonymat ? Est-ce qu'il pourrait se contenter d'utiliser uniquement ce script pour changer son adresse MAC et IP à intervalles réguliers, ou a-t-il besoin de méthodes supplémentaires pour rester non identifiable ?**
 
 
+----
+
+1. **Si un hacker utilise un VPN pour commettre un crime, est-il à l'abri d'être identifié et arrêté ? Quels facteurs peuvent limiter l'anonymat offert par un VPN ?**
+   Un hacker qui utilise un VPN n'est pas totalement à l'abri d'être identifié et arrêté. Plusieurs facteurs peuvent limiter son anonymat :
+   - **Conservation des logs** : Certains VPN gardent des journaux d'activité (logs), y compris l'adresse IP d'origine et les horaires de connexion. Si ces logs sont accessibles aux autorités via des moyens légaux, ils peuvent révéler l'identité de l'utilisateur.
+   - **Injonctions légales** : Les fournisseurs de VPN peuvent être obligés par la loi de coopérer avec les autorités et fournir des informations si elles sont disponibles.
+   - **Erreurs humaines** : Si le hacker commet des erreurs, comme l'utilisation de services en dehors du VPN ou des identifiants personnels, cela peut trahir son identité.
+   - **Fuites DNS ou WebRTC** : Ces vulnérabilités peuvent exposer l'adresse IP réelle même avec un VPN.
+   - **Surveillance des points d'entrée et de sortie du VPN** : Les agences peuvent surveiller le trafic au niveau des points de sortie des serveurs VPN et établir des corrélations pour identifier l'utilisateur.
+
+2. **Si un hacker change régulièrement son adresse MAC avant de commettre une attaque, par exemple avec le script suivant, est-ce suffisant pour garantir son anonymat lorsqu'il utilise un VPN ?**
+   Changer l'adresse MAC régulièrement peut compliquer la traçabilité au niveau du réseau local, mais cela n'est pas suffisant pour garantir un anonymat complet :
+   - L'adresse MAC n'est visible que sur le réseau local (LAN) et n'est pas transmise au-delà, donc cela ne protège pas contre la surveillance extérieure ou les serveurs distants.
+   - Si le hacker utilise un VPN, c'est ce dernier qui masque l'adresse IP, et le changement d'adresse MAC n'aura que peu d'impact en dehors du réseau local.
+   - Des outils de surveillance réseau peuvent détecter des changements anormaux de l'adresse MAC et lever des alertes.
+   - Un script seul ne suffit pas, et d'autres techniques (comme l'utilisation de VPN, Tor, ou de faux points d'accès) seraient nécessaires pour améliorer l'anonymat.
+
+3. **Comment la modification de l'adresse MAC et les fuites DNS ou WebRTC peuvent-elles révéler l'identité d'un utilisateur, même lorsqu'il utilise un VPN ?**
+   - **Modification de l'adresse MAC** : Changer l'adresse MAC permet d'échapper à la traçabilité locale, mais cela n'empêche pas l'identification par des fuites d'autres informations. En dehors du réseau local, l'adresse MAC n'est plus pertinente.
+   - **Fuites DNS** : Si les requêtes DNS ne passent pas par le tunnel VPN, elles peuvent être envoyées directement à votre fournisseur d'accès internet, révélant ainsi votre adresse IP réelle et les sites que vous visitez.
+   - **Fuites WebRTC** : WebRTC peut parfois contourner le VPN et exposer votre adresse IP locale ou publique, ce qui peut permettre à des observateurs ou des sites web de découvrir votre identité.
+
+4. **Quelles techniques de surveillance réseau peuvent permettre de suivre les changements d'adresse MAC ou détecter d'autres anomalies lorsqu'un hacker est sur un réseau surveillé, comme un réseau d'entreprise ou un fournisseur d'accès internet ?**
+   - **Systèmes de détection/prévention d'intrusion (IDS/IPS)** : Ces systèmes surveillent les réseaux pour détecter des activités anormales, comme des changements fréquents d'adresse MAC ou des schémas de connexion inhabituels.
+   - **Surveillance des flux réseau** : Les administrateurs réseau peuvent surveiller le trafic pour détecter des anomalies, comme des changements d'adresse IP ou MAC non expliqués.
+   - **Corrélation de paquets** : En analysant le trafic réseau, il est possible de faire correspondre des paquets réseau avant et après un changement d'adresse MAC, révélant ainsi un comportement suspect.
+   - **Fournisseurs d'accès Internet (FAI)** : Ils peuvent surveiller les connexions réseau pour détecter les anomalies et partager ces informations avec les autorités si nécessaire.
+
+5. **Lorsque je me connecte chez moi sans VPN, la résolution DNS est-elle effectuée via mon fournisseur d'accès internet ? Si j'utilise un VPN, est-ce que la résolution DNS se fait de la même manière ou est-elle différente ?**
+   - **Sans VPN** : Oui, la résolution DNS est généralement effectuée via les serveurs DNS de votre fournisseur d'accès internet (FAI). Ils peuvent voir et enregistrer toutes vos requêtes DNS.
+   - **Avec VPN** : Non, si le VPN est bien configuré, la résolution DNS passe par les serveurs DNS du fournisseur de VPN, chiffrant ainsi les requêtes et empêchant votre FAI de les voir. Cependant, en cas de fuite DNS, certaines requêtes peuvent tout de même être envoyées directement au FAI.
+
+6. **Quelles techniques un hacker professionnel utilise-t-il pour garantir son anonymat ? Est-ce qu'il pourrait se contenter d'utiliser uniquement ce script pour changer son adresse MAC et IP à intervalles réguliers, ou a-t-il besoin de méthodes supplémentaires pour rester non identifiable ?**
+   Un hacker professionnel ne se contenterait pas de ce script. Voici quelques techniques supplémentaires qu'il utiliserait :
+   - **VPN sécurisé et multi-hop VPN** : Utilisation de VPN qui ne conservent pas de logs, combinés à des connexions passant par plusieurs serveurs (multi-hop) pour compliquer la traçabilité.
+   - **Tor** : Utilisation du réseau Tor pour anonymiser davantage le trafic en le redirigeant via plusieurs nœuds.
+   - **Faux points d'accès (Evil Twin)** : Créer des points d'accès Wi-Fi factices pour tromper les victimes et capturer des données.
+   - **Systèmes d'exploitation sécurisés (Tails, Whonix)** : Utiliser des systèmes conçus pour protéger l'anonymat, comme Tails (un OS basé sur Tor) qui n'enregistre rien sur l'ordinateur hôte.
+   - **Proxies en chaîne (proxy chaining)** : Passer par plusieurs serveurs proxy pour masquer l'origine du trafic.
+   - **Falsification d'adresse IP (IP Spoofing)** : Détourner ou falsifier des adresses IP pour rendre la traçabilité plus difficile.
+   - **Anti-forensics** : Techniques pour effacer toute trace numérique après une attaque (suppression sécurisée des fichiers, camouflage des activités).
 
 ---
 # Partie 1
