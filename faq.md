@@ -1,3 +1,29 @@
+
+1. **Si un hacker utilise un VPN pour commettre un crime, est-il à l'abri d'être identifié et arrêté ? Quels facteurs peuvent limiter l'anonymat offert par un VPN ?**
+
+2. **Si un hacker change régulièrement son adresse MAC avant de commettre une attaque, par exemple avec le script suivant, est-ce suffisant pour garantir son anonymat lorsqu'il utilise un VPN ?**
+   ```bash
+   #!/bin/bash
+   INTERFACE="wlan0"
+   while true; do
+       sudo ifconfig $INTERFACE down
+       sudo macchanger -r $INTERFACE
+       sudo ifconfig $INTERFACE up
+       sudo dhclient $INTERFACE
+       sleep 5
+   done
+   ```
+
+3. **Comment la modification de l'adresse MAC et les fuites DNS ou WebRTC peuvent-elles révéler l'identité d'un utilisateur, même lorsqu'il utilise un VPN ?**
+
+4. **Quelles techniques de surveillance réseau peuvent permettre de suivre les changements d'adresse MAC ou détecter d'autres anomalies lorsqu'un hacker est sur un réseau surveillé, comme un réseau d'entreprise ou un fournisseur d'accès internet ?**
+
+5. **Lorsque je me connecte chez moi sans VPN, la résolution DNS est-elle effectuée via mon fournisseur d'accès internet ? Si j'utilise un VPN, est-ce que la résolution DNS se fait de la même manière ou est-elle différente ?**
+
+6. **Quelles techniques un hacker professionnel utilise-t-il pour garantir son anonymat ? Est-ce qu'il pourrait se contenter d'utiliser uniquement ce script pour changer son adresse MAC et IP à intervalles réguliers, ou a-t-il besoin de méthodes supplémentaires pour rester non identifiable ?**
+
+
+
 ---
 # Partie 1
 ---
