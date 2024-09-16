@@ -1,4 +1,4 @@
-# Scénario IPv4 seul, sans NetBIOS et sans découverte réseau**
+# Scénario IPv4 seul, sans NetBIOS et sans découverte réseau
 
 - étapes à suivre pour résoudre cet exercice :
 
