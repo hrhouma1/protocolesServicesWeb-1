@@ -825,3 +825,340 @@ CTRL-D
 ```
 
 Cette commande ouvre une interface dans le terminal pour écrire l'e-mail (sous l'en-tête "Cc:" pour ajouter des destinataires en copie carbone, si nécessaire), et l'email est envoyé à l'adresse spécifiée.
+
+
+
+
+
+
+
+
+--------------------------------------------
+# Étape 12 - Installation et Configuration du service Dovecot
+--------------------------------------------
+
+## Partie 12.1
+
+Voici les commandes extraites de l'image que vous avez partagée pour la gestion de Dovecot sur un serveur Ubuntu :
+
+1. **Installer Dovecot pour POP3D :**
+   ```bash
+   apt install dovecot-pop3d -y
+   ```
+
+2. **Installer Dovecot pour IMAPD :**
+   ```bash
+   apt install dovecot-imapd -y
+   ```
+
+3. **Éditer la configuration de Dovecot :**
+   ```bash
+   nano /etc/dovecot/dovecot.conf
+   ```
+
+Ces commandes sont utilisées pour installer les services POP3 et IMAP de Dovecot, et pour modifier la configuration de Dovecot en éditant son fichier de configuration principal.
+
+## Partie 12.2
+
+```plaintext
+## Dovecot configuration file
+
+# If you're in a hurry, see http://wiki2.dovecot.org/QuickConfiguration
+
+# "doveconf -n" command gives a clean output of the changed settings. Use it
+# instead of copy&pasting files when posting to the Dovecot mailing list.
+
+# "*" character and everything after it is treated as comments. Extra spaces
+# and tabs are ignored. If you want to use either of these explicitly, put the
+# value inside quotes, e.g.: key = "value # char and trailing whitespace "
+
+# Most (but not all) settings can be overridden by different protocols and/or
+# source/destination IPs by placing the settings inside sections, for example:
+# protocol imap { }, local 127.0.0.1 { }, remote 10.0.0.0/8 { }
+
+# Default values are shown for each setting; it's not required to uncomment
+# those. These are exceptions to this though: No sections (e.g. namespace {})
+# or plugin settings are added by default, they're listed only as examples.
+# Paths are also just examples with the real defaults being based on configure
+# options. The paths listed here are for configure --prefix=/usr
+# --sysconfdir=/etc --localstatedir=/var
+
+# Enable installed protocols
+!include_try /usr/share/dovecot/protocols.d/*.protocol
+
+# A comma-separated list of IPs or hosts where to listen in for connections.
+# "*" listens to all IPv4 interfaces, "::" listens in all IPv6 interfaces.
+# If you want to specify non-default ports or anything more complex,
+# edit conf.d/master.conf.
+# listen = *, ::
+
+# Enable installed protocols
+protocols = pop3 imap
+```
+
+Cette transcription inclut chaque ligne visible dans l'image, y compris les commentaires qui fournissent des explications sur les différentes directives de configuration. Les lignes commentées, telles que `# listen = *, ::`, indiquent des paramètres qui ne sont pas activés par défaut.
+
+
+
+## Partie 12.3
+
+
+1. **Lister les fichiers de configuration de Dovecot dans le répertoire :**
+   ```bash
+   ls /etc/dovecot/conf.d/
+   ```
+
+2. **Éditer un fichier de configuration spécifique de Dovecot :**
+   ```bash
+   nano /etc/dovecot/conf.d/10-mail.conf
+   ```
+
+Ces commandes permettent de voir quels fichiers de configuration sont disponibles dans le répertoire `conf.d` de Dovecot et de modifier spécifiquement le fichier `10-mail.conf`, qui est couramment utilisé pour configurer les aspects relatifs aux boîtes mail dans Dovecot.
+
+
+## Partie 12.4
+
+
+#### fichier `10-mail.conf` pour Dovecot :
+
+```plaintext
+## Mailbox locations and namespaces
+
+# Location for users' mailboxes. The default is empty, which means that Dovecot
+# tries to find the mailboxes automatically. This won't work if the user
+# doesn't have any mail, so you should explicitly tell Dovecot the full
+# location.
+
+# If you're using mbox, giving a path to the INBOX file (e.g., /var/mail/%u)
+# isn't enough. You'll also need to tell Dovecot where the other mailboxes are
+# kept. This is called the "root mail directory," and it must be the first
+# path given in the mail_location setting.
+
+# There are a few special variables you can use, e.g.:
+%u - username
+%d - domain part in user@domain, same as %u if there's no domain
+%h - home directory
+
+# See doc/wiki/Variables.txt for full list. Some examples:
+
+mail_location = mbox:~/mail:INBOX=/var/mail/%u
+mail_location = mbox:/var/mail/%u:INDEX=/var/indexes/%d/%1n/%n
+mail_location = mbox:/var/mail/%u
+
+# If you need to set multiple mailbox locations or want to change default
+# namespace settings, you can do it by defining namespace sections.
+```
+
+Ce texte décrit comment configurer l'emplacement des boîtes aux lettres pour les utilisateurs dans Dovecot, en utilisant différents formats et chemins, et en employant des variables spéciales pour dynamiser les chemins selon l'utilisateur et le domaine. Il fournit également des instructions pour définir des emplacements multiples ou pour modifier les paramètres de namespace par défaut.
+
+
+
+
+
+## Partie 12.5
+
+
+#### fichier `10-master.conf` de Dovecot dans l'image :
+
+```plaintext
+## Internal user is used by unprivileged processes. It should be separate from
+# login user, so that login processes can't disturb other processes.
+default_internal_user = dovecot
+
+service imap-login {
+  inet_listener imap {
+    port = 143
+  }
+  inet_listener imaps {
+    port = 993
+    ssl = yes
+  }
+}
+
+# Number of connections to handle before starting a new process. Typically
+# the only useful values are 0 (unlimited) or 1. 1 is more secure, but 0
+# is faster. <doc/wiki/LoginProcess.txt>
+#service_count = 1
+
+# Number of processes to always keep waiting for more connections.
+#process_min_avail = 0
+
+# If you set service_count=0, you probably need to grow this.
+#vsz_limit = $default_vsz_limit
+```
+
+Ce texte configure les paramètres pour les services de connexion IMAP dans Dovecot, incluant les ports pour IMAP standard et IMAP sécurisé (SSL). Il mentionne aussi les paramètres pour la gestion des processus et des connexions, bien que certaines options soient commentées et ne soient pas actives sans décommentation.
+
+
+
+## Partie 12.6
+
+
+###### SUITE `10-master.conf` de Dovecot dans votre dernière image :
+
+```plaintext
+# If you set service_count=0, you probably need to grow this.
+#vsz_limit = $default_vsz_limit
+
+service pop3-login {
+  inet_listener pop3 {
+    port = 110
+  }
+  inet_listener pop3s {
+    port = 995
+    ssl = yes
+  }
+}
+
+service submission-login {
+  inet_listener submission {
+    port = 587
+  }
+}
+
+service lmtp {
+  unix_listener lmtp {
+    #mode = 0666
+  }
+}
+
+# Create inet listener only if you can't use the above UNIX socket
+#inet_listener lmtp {
+  # Avoid making LMTP visible for the entire internet
+  #address =
+  #port =
+}
+
+# File Name to Write: /etc/dovecot/conf.d/10-master.conf
+```
+
+Cette transcription décrit plusieurs sections de configuration pour Dovecot :
+
+- **Service pop3-login**: Définit les ports pour les connexions POP3 standard (port 110) et sécurisées POP3S (port 995 avec SSL activé).
+- **Service submission-login**: Configure le port pour le service de soumission (utilisé généralement pour SMTP sur le port 587).
+- **Service lmtp**: Configure un listener UNIX pour le protocole LMTP, utilisé pour la remise de message local.
+
+Les commentaires fournissent des conseils supplémentaires sur la configuration, comme l'ajustement de limites si `service_count` est défini sur 0, ou des notes pour éviter de rendre le service LMTP visible sur l'Internet entier.
+
+## Partie 12.7
+
+
+
+##### fichier `10-ssl.conf` de Dovecot, selon votre image :
+
+```plaintext
+## SSL settings
+
+# SSL/TLS support: yes, no, required. doc/wiki/SSL.txt
+ssl = yes
+
+# PEM encoded X.509 SSL/TLS certificate and private key. They're opened before
+# dropping root privileges, so keep the key file unreadable by anyone but
+# root. Include doc/mkcert.sh can be used to easily generate self-signed
+# certificate, just make sure to update the domain in dovecot-openssl.cnf
+#ssl_cert = </etc/dovecot/private/dovecot.pem
+#ssl_key = </etc/dovecot/private/dovecot.key
+
+# If key file is password protected, give the password here. Alternatively
+# give it when starting dovecot with -p parameter. Since this file is often
+# world-readable, you might want to place this setting instead to a different
+# not world-readable file by using ssl_key_password = <path>.
+#ssl_key_password =
+
+# PEM encoded trusted certificate authority. Set this only if you intend to use
+# ssl_verify_client_cert=yes. The file should contain the CA certificate(s)
+# followed by the matching CRL(s). (e.g. ssl_ca = </etc/ssl/certs/ca.pem)
+#ssl_ca =
+
+# Require that CRL check succeeds for client certificates.
+#ssl_require_crl = yes
+
+# Directory and/or file for trusted SSL CA certificates. These are used only
+# when Dovecot needs to act as an SSL client (e.g., IMAP backend on
+# submission service). The directory is usually /etc/ssl/certs in
+# Debian-based systems and the file is /etc/pki/tls/cert.pem in
+# RedHat-based systems.
+```
+
+Ce texte définit la configuration SSL/TLS pour Dovecot, y compris les chemins pour les certificats SSL, les clés privées, et des directives optionnelles pour la protection par mot de passe des clés et la validation des certificats clients. Il fournit également des conseils sur l'emplacement des certificats d'autorité de certification de confiance pour les systèmes basés sur Debian et RedHat.
+
+
+
+## Partie 12.8
+
+
+
+###### fichier `10-auth.conf` de Dovecot, selon votre image :
+
+```plaintext
+## Authentication processes
+
+# Disable LOGIN command and all other plaintext authentications unless
+# SSL/TLS is used (LOGINDISABLED capability). Note that if the remote IP
+# matches the local IP (i.e., you're connecting from the same computer), the
+# connection is considered secure and plaintext authentication is allowed.
+# See also ssl=required setting.
+disable_plaintext_auth = no
+
+# Authentication cache size (e.g., 1000). 0 means it's disabled. Note that
+# burst, fch, and pwdmail variables require cache_key to be set for caching to be used.
+#auth_cache_size = 0
+
+# Time to live for cached data. After TTL expires the cached record is no
+# longer used, except if the main database lookup returns internal failure.
+# He also try to handle password changes automatically. If user's previous
+# authentication was successful, but this one wasn't, the cache isn't used.
+# For now this turns only plaintext authentications caching.
+#auth_cache_ttl = 1 hours
+#auth_cache_negative_ttl = 1 hour (use not found, password mismatch).
+
+# Disable caching hints (comment/help).
+#auth_cache_ttl = 1 hour
+#auth_cache_negative_ttl = 1 hour
+
+# Space separated list of realms for SASL authentication mechanisms that need
+# them. You can leave it empty if you don't want to support multiple realms.
+# Many clients simply use the first one listed here, so keep the default realm
+# first.
+default_realm =
+
+# Set real realm/domain to use if none was specified. This is used for both
+# SASL realms and appending @domain to username in plaintext logins.
+#auth_default_realm =
+```
+
+Ce texte définit les paramètres de configuration liés à l'authentification pour Dovecot, incluant des directives pour désactiver l'authentification en texte clair à moins que SSL/TLS ne soit utilisé, des paramètres pour la gestion du cache d'authentification, et des options pour la configuration des royaumes SASL.
+
+
+
+## Partie 12.9
+
+
+1. **Changer de répertoire vers le dossier contenant les clés privées de Dovecot :**
+   ```bash
+   cd /etc/dovecot/private/
+   ```
+
+2. **Lister les fichiers dans le répertoire :**
+   ```bash
+   ls
+   ```
+   Les fichiers listés sont `dovecot.key` et `dovecot.pem`.
+
+3. **Redémarrer le service Dovecot :**
+   ```bash
+   service dovecot restart
+   ```
+
+4. **Vérifier le statut du service Dovecot :**
+   ```bash
+   systemctl status dovecot
+   ```
+   La sortie indique que le service Dovecot est actif (running) depuis le `Sun 2021-07-25 18:39:12 UTC`.
+
+Ces commandes sont utilisées pour naviguer dans les répertoires de configuration de Dovecot, pour visualiser les fichiers clés, et pour gérer le service Dovecot sur le serveur, assurant son bon fonctionnement.
+
+
+
+
+
