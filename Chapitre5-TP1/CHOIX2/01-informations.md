@@ -435,3 +435,129 @@ Commandes de test :
 
 
 
+
+
+
+--------------------------------------------
+# Étape 8 - Confuguration de postfix
+--------------------------------------------
+
+
+Pour configurer Postfix sur un serveur Ubuntu, voici les étapes détaillées, y compris les commentaires pour chaque section du fichier `main.cf` :
+
+## Installation de Postfix
+
+Exécutez la commande suivante pour installer Postfix :
+
+```bash
+apt install postfix -y
+```
+
+Lors de l'installation, choisissez les options suivantes :
+- **Type de configuration du mail** : Internet Site
+- **Nom du système de messagerie** : ubuntu
+
+## Configuration du fichier `/etc/postfix/main.cf`
+
+Éditez le fichier de configuration principal :
+
+```bash
+nano /etc/postfix/main.cf
+```
+
+### Partie 1 : Paramètres de base
+
+```plaintext
+# Debian specific: Specifying a file name will cause the first
+# line of that file to be used as the name. The Debian default
+# is /etc/mailname.
+myorigin = /etc/mailname
+
+mydomain = ns.local
+home_mailbox = Maildir/
+message_size_limit = 52428800
+
+smtp_sasl_auth_enable = yes
+smtp_use_tls = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_security_options =
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+
+smtp_sasl_auth_enable = yes
+
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+
+# Uncomment the next line to generate "delayed mail" warnings
+#delay_warning_time = 4h
+
+readme_directory = no
+```
+
+### Partie 2 : Paramètres TLS et compatibilité
+
+```plaintext
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+biff = no
+
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+
+# Uncomment the next line to generate "delayed mail" warnings
+delay_warning_time = 4h
+
+readme_directory = no
+
+# See http://www.postfix.org/COMPATIBILITY_README.html -- default to 2 on
+# fresh installs.
+compatibility_level = 2
+
+# TLS parameters
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_tls_security_level=may
+
+smtp_tls_CApath=/etc/ssl/certs
+smtp_tls_security_level=may
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+
+# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
+# information on enabling SSL in the smtp client.
+```
+
+### Partie 3 : Restrictions de relais et réseaux
+
+```plaintext
+# TLS parameters (repeated for clarity)
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_tls_security_level=may
+
+smtp_tls_CApath=/etc/ssl/certs
+smtp_tls_security_level=may
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+myhostname = ubuntu.ns.local
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+mydestination = $myhostname, ubuntu, localhost.localdomain, ns.local, mail.ns.local, localhost
+relayhost = [smtp.gmail.com]:587
+virtual_alias_maps = hash:/etc/postfix/virtual
+mynetworks = 127.0.0.0/8, 192.168.2.0/24
+mailbox_size_limit = 0
+recipient_delimiter = +
+```
+
+## Redémarrage du service Postfix
+
+Après avoir modifié le fichier de configuration, redémarrez le service Postfix pour appliquer les modifications :
+
+```bash
+systemctl restart postfix
+```
+
+Assurez-vous que le fichier `/etc/postfix/sasl_passwd` est correctement configuré pour l'authentification SMTP si nécessaire.
+
