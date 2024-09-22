@@ -237,56 +237,100 @@ Ces étapes permettent de configurer les adresses IP statiques, désactiver le p
 # 05 - Configuration des adresses IPs au niveau des clients
 --------------------------------------------
 
+# Installation de Bind9
 
+1. **Installer Bind9 :**
+   ```bash
+   apt install bind9
+   ```
 
-Pour configurer Bind9 sur le serveur Ubuntu et configurer Ubuntu Desktop avec une adresse IP statique, suivez ces étapes :
+2. **Supprimer le fichier de configuration local par défaut :**
+   ```bash
+   rm /etc/bind/named.conf.local
+   ```
 
-# Configuration de Bind9 sur le Serveur Ubuntu
+3. **Créer un nouveau fichier de configuration local :**
+   ```bash
+   nano /etc/bind/named.conf.local
+   ```
 
-1. **Copier le fichier de zone par défaut :**
+4. **Ajouter la configuration de zone :**
+   ```plaintext
+   zone "ns.local" {
+       type master;
+       file "/etc/bind/db.ns.local";
+   };
+   ```
+
+# Configuration de la zone DNS
+
+5. **Copier le fichier de zone par défaut :**
    ```bash
    cp /etc/bind/db.local /etc/bind/db.ns.local
    ```
 
-2. **Éditer le fichier de zone :**
+6. **Éditer le fichier de zone :**
    ```bash
    nano /etc/bind/db.ns.local
    ```
-   - Ajoutez les enregistrements DNS nécessaires.
+   - Ajoutez les enregistrements DNS nécessaires :
+     ```plaintext
+     @    IN  SOA ns.local. root.ns.local. (
+         604800 ; Refresh
+         86400  ; Retry
+         2419200; Expire
+         604800 ); Negative Cache TTL
 
-3. **Redémarrer Bind9 :**
+     @       IN  NS    ns.local.
+     ns      IN  A     192.168.2.10
+     www     IN  CNAME ns.local.
+     mail    IN  A     192.168.2.10
+     ftp     IN  A     192.168.2.10
+     smtp    IN  A     192.168.2.10
+     pop     IN  A     192.168.2.10
+     pop3    IN  A     192.168.2.10
+     haythem IN  CNAME ns.local.
+     ```
+
+# Vérification et redémarrage
+
+7. **Redémarrer Bind9 :**
    ```bash
    service bind9 restart
    ```
 
-4. **Vérifier le statut de Bind9 :**
+8. **Vérifier le statut de Bind9 :**
    ```bash
    service bind9 status
    ```
 
-5. **Vérifier la configuration de Bind9 :**
+9. **Vérifier la configuration de Bind9 :**
    ```bash
    named-checkconf /etc/bind/named.conf
    named-checkzone ns.local /etc/bind/db.ns.local
    ```
 
-6. **Installer resolvconf si nécessaire :**
-   ```bash
-   apt install resolvconf
-   ```
+# Configuration DNS locale
 
-7. **Configurer resolvconf :**
-   - Éditez `/etc/resolvconf/resolv.conf.d/head` :
-     ```plaintext
-     nameserver 192.168.2.10
-     nameserver 8.8.8.8
-     search ns.local
-     ```
+10. **Installer resolvconf :**
+    ```bash
+    apt install resolvconf
+    ```
 
-8. **Redémarrer le serveur :**
-   ```bash
-   reboot
-   ```
+11. **Configurer resolvconf :**
+    - Éditer `/etc/resolvconf/resolv.conf.d/head` :
+      ```plaintext
+      nameserver 192.168.2.10
+      nameserver 8.8.8.8
+      search ns.local
+      ```
+
+12. **Redémarrer le serveur :**
+    ```bash
+    reboot
+    ```
+
+Ces étapes vous permettront d'ajouter divers enregistrements DNS, y compris des enregistrements A et CNAME, pour montrer à vos étudiants comment configurer un serveur DNS avec Bind9 sur Ubuntu.
 
 
 
