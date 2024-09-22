@@ -561,3 +561,37 @@ systemctl restart postfix
 
 Assurez-vous que le fichier `/etc/postfix/sasl_passwd` est correctement configuré pour l'authentification SMTP si nécessaire.
 
+
+
+
+
+
+
+
+--------------------------------------------
+# Étape 9 - Configuration du RELAIS SMTP pour le service Postfix
+--------------------------------------------
+
+
+- Étapes suivantes pour configurer le relais SMTP dans Postfix sur un serveur Ubuntu :
+
+1. **Édition du fichier `/etc/postfix/sasl_passwd` :**
+   - Utilisez la commande :
+     ```bash
+     nano /etc/postfix/sasl_passwd
+     ```
+   - Ajoutez la ligne suivante avec vos informations d'identification :
+     ```
+     [smtp.gmail.com]:587 AdresseMail:MotdePasse
+     ```
+
+2. **Création de la base de données de mots de passe :**
+   - Exécutez la commande suivante pour créer le fichier de base de données :
+     ```bash
+     postmap /etc/postfix/sasl_passwd
+     ```
+
+Ces étapes permettent de configurer l'authentification SMTP pour l'envoi d'e-mails via Gmail. Assurez-vous de remplacer `AdresseMail` et `MotdePasse` par vos informations réelles.
+
+
+
