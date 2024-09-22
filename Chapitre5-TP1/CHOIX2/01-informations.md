@@ -595,3 +595,233 @@ Ces étapes permettent de configurer l'authentification SMTP pour l'envoi d'e-ma
 
 
 
+
+
+--------------------------------------------
+# Étape 10 - Ajout d'utilisateurs et configuration de relais SMTP avec Postfix sur Ubuntu
+--------------------------------------------
+
+---------------------------------------------------
+# AU NIVEAU DE UBUNTU SERVER
+---------------------------------------------------
+
+
+**1. Accéder au serveur**  
+Connectez-vous à votre serveur Ubuntu via SSH ou ouvrez votre terminal si vous êtes directement connecté à la machine.
+
+**2. Ajouter des utilisateurs**  
+Vous devez ajouter des utilisateurs qui auront accès pour envoyer des e-mails via le serveur SMTP. Voici comment ajouter un utilisateur :
+
+```bash
+sudo adduser [nom_utilisateur]
+```
+
+Remplacez `[nom_utilisateur]` par le nom réel de l'utilisateur. Par exemple :
+
+```bash
+sudo adduser lombard
+sudo adduser luc
+sudo adduser vincent
+sudo adduser christelle
+sudo adduser arnaud
+sudo adduser karine
+sudo adduser michel
+```
+
+Chaque commande vous demandera de définir un mot de passe et de remplir éventuellement des informations utilisateur supplémentaires.
+
+**3. Installer Postfix**  
+Si Postfix n'est pas encore installé, vous pouvez l'installer en exécutant :
+
+```bash
+sudo apt update
+sudo apt install postfix
+```
+
+Lors de l'installation, sélectionnez "Site Internet" et configurez le nom de domaine comme demandé.
+
+**4. Configurer la cartographie virtuelle de Postfix**  
+Postfix peut utiliser une cartographie virtuelle pour diriger les e-mails pour différents utilisateurs. Éditez le fichier de cartographie virtuelle :
+
+```bash
+sudo nano /etc/postfix/virtual
+```
+
+Ajoutez des mappages au format `utilisateur@example.com   nom_utilisateur`, où `utilisateur@example.com` est l'adresse e-mail et `nom_utilisateur` est l'utilisateur local qui recevra les e-mails :
+
+```
+lombard@example.com    lombard
+luc@example.com        luc
+vincent@example.com    vincent
+christelle@example.com christelle
+arnaud@example.com     arnaud
+karine@example.com     karine
+michel@example.com     michel
+```
+
+Enregistrez et quittez le fichier (`CTRL+X`, puis `Y` et `Entrée`).
+
+**5. Appliquer la configuration de Postfix**  
+Pour appliquer la configuration, vous devez hasher les cartographies virtuelles et recharger Postfix :
+
+```bash
+sudo postmap /etc/postfix/virtual
+sudo systemctl reload postfix
+```
+
+**6. Tester la fonctionnalité d'envoi d'e-mails**  
+Testez la configuration en envoyant un e-mail de test depuis la ligne de commande ou en utilisant un client de messagerie configuré pour utiliser le serveur.
+
+```bash
+echo "Ceci est un e-mail de test." | mail -s "E-mail de test" utilisateur@example.com
+```
+
+Remplacez `utilisateur@example.com` par l'adresse e-mail réelle que vous avez configurée.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------
+# Étape 11 - Tests du relais SMTP
+--------------------------------------------
+
+---------------------------------------------------
+# AU NIVEAU DE UBUNTU SERVER
+---------------------------------------------------
+
+## Partie 11.1 
+
+1. `postmap /etc/postfix/virtual`
+2. `nano /etc/postfix/`
+3. `nano /etc/postfix/master.cf`
+
+Ces commandes sont utilisées dans la configuration de Postfix sur un serveur Ubuntu :
+
+- **`postmap /etc/postfix/virtual`** : Cette commande crée une table de recherche de base de données pour Postfix à partir du fichier de configuration `/etc/postfix/virtual`. Cela est nécessaire pour que Postfix puisse gérer correctement les redirections et les alias email spécifiés dans ce fichier.
+  
+- **`nano /etc/postfix/`** : Cela semble être une tentative de lancer l'éditeur de texte nano pour modifier les fichiers dans le répertoire `/etc/postfix/`. Toutefois, cette commande est incomplète car elle doit spécifier un fichier à ouvrir, comme `/etc/postfix/main.cf` ou `/etc/postfix/master.cf`.
+
+- **`nano /etc/postfix/master.cf`** : Cette commande ouvre le fichier `master.cf` de Postfix avec l'éditeur nano. Ce fichier de configuration contient divers paramètres qui contrôlent les services de messagerie et les options de livraison de Postfix. Modifier ce fichier permet de personnaliser la façon dont Postfix traite les emails, les connexions réseau, et plus encore.
+
+## Partie 11.2
+
+
+```plaintext
+smtp      inet  n       -       y       -       -       smtpd
+submission inet n       -       y       -       -       smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_tls_auth_only=yes
+  -o smtpd_reject_unlisted_recipient=no
+  -o smtpd_recipient_restrictions=
+  -o smtpd_helo_restrictions=
+  -o smtpd_sender_restrictions=
+  -o smtpd_recipient_restrictions=
+  -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
+```
+
+Ces lignes configurent deux services dans Postfix :
+
+1. **smtp** - Le service smtpd qui écoute sur le port SMTP standard pour les connexions entrantes.
+2. **submission** - Le service smtpd configuré pour écouter sur le port de soumission (587). Ce service est configuré pour utiliser des niveaux de sécurité plus élevés, ce qui est recommandé pour les connexions de soumission où les utilisateurs s'authentifient avant d'envoyer des emails.
+
+Chacune des options `-o` spécifie des paramètres pour le service `submission` :
+- `syslog_name=postfix/submission` : Utilise un nom syslog spécifique pour distinguer les logs de ce service.
+- `smtpd_tls_security_level=encrypt` : Force l'utilisation de TLS pour ce service.
+- `smtpd_sasl_auth_enable=yes` : Active l'authentification SASL.
+- `smtpd_tls_auth_only=yes` : N'autorise l'authentification que si TLS est utilisé.
+- `smtpd_reject_unlisted_recipient=no` : Ne rejette pas les emails pour les destinataires non listés dans la configuration locale.
+- `smtpd_recipient_restrictions`, `smtpd_helo_restrictions`, `smtpd_sender_restrictions` : Défini les restrictions spécifiques pour les destinataires, les commandes HELO et les expéditeurs.
+- `smtpd_relay_restrictions=permit_sasl_authenticated,reject` : Permet le relais pour les utilisateurs authentifiés via SASL, rejette tous les autres.
+
+
+
+## Résumé
+
+#### Fichier `master.cf` de Postfix
+
+```plaintext
+smtp      inet  n       -       y       -       -       smtpd
+submission inet n       -       y       -       -       smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_tls_auth_only=yes
+  -o smtpd_reject_unlisted_recipient=no
+  -o smtpd_recipient_restrictions=
+  -o smtpd_helo_restrictions=
+  -o smtpd_sender_restrictions=
+  -o smtpd_recipient_restrictions=
+  -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
+```
+
+- Ces lignes spécifient la configuration des services SMTP et Submission pour Postfix. 
+- Chaque option `-o` modifie le comportement par défaut du service de soumission pour améliorer la sécurité et gérer l'authentification des utilisateurs.
+
+
+## Partie 11.3
+
+
+
+1. **Redémarrer Postfix en utilisant init.d (méthode traditionnelle) :**
+   ```bash
+   /etc/init.d/postfix restart
+   ```
+
+2. **Redémarrer Postfix en utilisant service (méthode courante sur les systèmes plus anciens) :**
+   ```bash
+   service postfix restart
+   ```
+
+3. **Redémarrer Postfix en utilisant systemctl (recommandé sur les systèmes utilisant systemd) :**
+   ```bash
+   systemctl restart postfix
+   ```
+
+4. **Vérifier le statut de Postfix :**
+   ```bash
+   service postfix status
+   ```
+
+
+
+
+
+
+
+
+## Partie 11.4 - Tester l'email via la ligne de commandes
+
+```bash
+mail -s "Test POSTFIX" votre_adresse@email.com
+```
+
+Remplacez `votre_adresse@email.com` par l'adresse e-mail que vous souhaitez tester. Vous pouvez également ajouter un corps au message en entrant le texte après la commande, puis en terminant avec `CTRL-D` pour envoyer. Voici un exemple complet :
+
+```bash
+mail -s "Test POSTFIX" votre_adresse@email.com
+Ceci est un Test du Service POSTFIX pour le Relais SMTP
+CTRL-D
+```
+
+Cette commande ouvre une interface dans le terminal pour écrire l'e-mail (sous l'en-tête "Cc:" pour ajouter des destinataires en copie carbone, si nécessaire), et l'email est envoyé à l'adresse spécifiée.
