@@ -1,5 +1,5 @@
 --------------------------------------------
-# 01 - Configuration initiale du laboratoire
+# Étape 01 - Configuration initiale du laboratoire
 --------------------------------------------
 
 ```
@@ -41,7 +41,7 @@ Les machines utilisent un réseau NAT avec l'adresse de sous-réseau 192.168.2.x
 
 
 --------------------------------------------
-# 02 - Installation des machines virtuelles
+# Étape 02 - Installation des machines virtuelles
 --------------------------------------------
 
 
@@ -104,7 +104,7 @@ Ces étapes vous guideront à travers l'installation des systèmes d'exploitatio
 
 
 --------------------------------------------
-# 03 - Configuration du serveur et des adresses IP serveur
+# Étape 03 - Configuration du serveur et des adresses IP serveur
 --------------------------------------------
 
 
@@ -161,7 +161,7 @@ Ces étapes configurent votre serveur Ubuntu avec une adresse IP statique, un ga
 
 
 --------------------------------------------
-# 04 - Configuration des adresses IPs au niveau des clients
+# Étape 04 et 05 - Configuration des adresses IPs au niveau des clients
 --------------------------------------------
 
 
@@ -234,7 +234,7 @@ Ces étapes permettent de configurer les adresses IP statiques, désactiver le p
 
 
 --------------------------------------------
-# 06 - Installation et configuration de Bind9
+# Étape 06 -  Installation et configuration de Bind9
 --------------------------------------------
 
 # Installation de Bind9
