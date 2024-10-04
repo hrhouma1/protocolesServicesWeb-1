@@ -272,7 +272,6 @@ Ces commandes vous permettent de gérer les éléments de base dans Active Direc
 
 ----------------------------------------
 
-Certainement, continuons avec les sections suivantes :
 
 ## 9. Gestion des comptes de service
 
