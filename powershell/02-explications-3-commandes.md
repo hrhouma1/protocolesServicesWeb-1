@@ -1,5 +1,6 @@
+------------------------------------
 # Résumé sans explications :
-
+------------------------------------
 
 ## 2. Utilisation de PowerShell pour Active Directory
 
@@ -130,10 +131,12 @@ Set-ADAccountPassword
 Set-ADUser -PasswordNeverExpires $true
 ```
 
-
+--------------------
 # Explications: 
+--------------------
 
-Je comprends que vous êtes débutant et que vous avez besoin d'explications plus détaillées. Je vais vous fournir des explications simples pour chaque commande, en indiquant les parties que vous devrez personnaliser. Commençons par les commandes de base :
+- Je vais vous fournir des explications simples pour chaque commande, en indiquant les parties que vous devrez personnaliser.
+- Commençons par les commandes de base :
 
 ## 2. Utilisation de PowerShell pour Active Directory
 
