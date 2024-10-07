@@ -1,1 +1,3 @@
 - https://neptunet.fr/pfsense-install/
+- https://www.youtube.com/watch?v=LX-Y-99zJ3M&ab_channel=ZacsTech
+- https://www.youtube.com/watch?v=Xd-W8wFh8Sk&ab_channel=HatemZus
