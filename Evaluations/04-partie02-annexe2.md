@@ -50,6 +50,19 @@ Install-WindowsFeature -Name AD-Domain-Services, DNS -IncludeManagementTools
 Install-ADDSForest -DomainName "test.local" -DomainNetBiosName "test" -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseSecurise123" -AsPlainText -Force) -InstallDNS
 ```
 
+
+- Ici la création de **test.local** a bien été réalisée dans l'**Étape 1** sous la forme de la commande suivante :
+
+```powershell
+Install-ADDSForest -DomainName "test.local" -DomainNetBiosName "test" -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseSecurise123" -AsPlainText -Force) -InstallDNS
+```
+
+- Cette commande promeut **DC** en tant que contrôleur de domaine et crée le domaine **test.local** en une seule étape.
+- Donc, la création du domaine **test.local** a été bien prise en compte, et il n'y a pas d'étape manquante concernant cette configuration.
+- La commande suivante installe **Active Directory Domain Services** et crée un nouveau domaine **test.local** avec son DNS associé. 
+
+
+
 5. Le serveur redémarre automatiquement après la promotion. Connectez-vous à nouveau à **DC** après le redémarrage.
 
 ---
