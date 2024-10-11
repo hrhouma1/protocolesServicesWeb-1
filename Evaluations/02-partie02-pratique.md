@@ -31,7 +31,7 @@
 
 # **1. Configuration de base des machines (20%)**
 
-**Étape 1 :**  
+##**Étape 1 :**  
 - **DC** : Configurer comme le contrôleur de domaine pour le domaine `test.local`.
 - **DS** : Servir comme serveur secondaire dans le domaine `test.local`.
 
@@ -41,7 +41,7 @@
 **À remettre :**
 - Capture d'écran des résultats de la commande **ipconfig /all** sur **DC** et **DS**.
   
-**Étape 2 :**  
+##**Étape 2 :**  
 - Testez la connectivité Internet sur **DC** et **DS**.
 
 **À faire :**
@@ -54,7 +54,7 @@
 
 # **2. Installation et configuration DNS sur DC (40%)**
 
-**Étape 1 : Installation du rôle DNS (10%)**  
+##**Étape 1 : Installation du rôle DNS (10%)**  
 - Installez le rôle **DNS** sur **DC** si ce n'est pas déjà fait.
 
 **À faire :**
@@ -65,7 +65,7 @@
 
 ---
 
-**Étape 2 : Configuration de la zone de recherche directe (10%)**  
+##**Étape 2 : Configuration de la zone de recherche directe (10%)**  
 - Créez une zone de recherche directe pour le domaine `test.local` sur **DC**.
 
 **À faire :**
@@ -76,7 +76,7 @@
 
 ---
 
-**Étape 3 : Configuration de la zone de recherche inversée (10%)**  
+##**Étape 3 : Configuration de la zone de recherche inversée (10%)**  
 - Créez une zone de recherche inversée pour le réseau `192.168.100.x` sur **DC**.
 
 **À faire :**
@@ -87,7 +87,7 @@
 
 ---
 
-**Étape 4 : Ajout d'un enregistrement PTR (10%)**  
+##**Étape 4 : Ajout d'un enregistrement PTR (10%)**  
 - Ajoutez un enregistrement **PTR** pour **DC** dans la zone de recherche inversée.
 
 **À faire :**
@@ -100,7 +100,7 @@
 
 # **3. Tests DNS et résolutions (40%)**
 
-**Étape 1 : Test avec nslookup (20%)**  
+##**Étape 1 : Test avec nslookup (20%)**  
 - Testez votre configuration DNS avec la commande **nslookup**.
 
 **À faire :**
@@ -112,7 +112,7 @@
 
 ---
 
-**Étape 2 : Test de la résolution inversée (10%)**  
+##**Étape 2 : Test de la résolution inversée (10%)**  
 - Testez la résolution de l'adresse IP de **DC**.
 
 **À faire :**
@@ -123,7 +123,7 @@
 
 ---
 
-**Étape 3 : Configuration du redirecteur DNS (10%)**  
+##**Étape 3 : Configuration du redirecteur DNS (10%)**  
 - Configurez un redirecteur pour les requêtes externes.
 
 **À faire :**
