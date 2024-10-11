@@ -58,7 +58,7 @@ Install-ADDSForest -DomainName "test.local" -DomainNetBiosName "test" -SafeModeA
 ```
 
 - Cette commande promeut **DC** en tant que contrôleur de domaine et crée le domaine **test.local** en une seule étape.
-- Donc, la création du domaine **test.local** a été bien prise en compte, et il n'y a pas d'étape manquante concernant cette configuration.
+- Donc, la création du domaine **test.local** a été bien prise en compte dans la commande.
 - La commande suivante installe **Active Directory Domain Services** et crée un nouveau domaine **test.local** avec son DNS associé. 
 
 
