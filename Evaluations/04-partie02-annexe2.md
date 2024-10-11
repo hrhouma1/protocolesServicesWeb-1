@@ -242,12 +242,15 @@ Set-DnsServerForwarder -IPAddress "8.8.8.8"
 - **Machine 2 (DS)** : Installation de DNS, création de la zone secondaire, test de la résolution DNS.
 - **Tests** : Ping, nslookup pour tester la connectivité et la résolution des noms et adresses IP.
 
+----------------------
+# Annexe 1:
+----------------------
 
-# Annexe :
+## Question:
 
 - Est-ce que j'ai besoin d'installer Active Directory sur la machine 2, ou est-ce que ce n'est pas nécessaire ?
 
-# Réponse :
+## Réponse :
 
 - Non, il n'est pas nécessaire d'installer **Active Directory** sur la machine **DS** (Machine 2). 
 
@@ -256,3 +259,30 @@ Voici pourquoi :
 - **DS** est configuré ici en tant que serveur DNS secondaire. Il n'a pas besoin d'**Active Directory** car il ne joue pas le rôle de contrôleur de domaine. Son rôle est uniquement de répliquer et de servir de sauvegarde pour les informations DNS, ce qui suffit pour les tâches DNS dans ce TP.
 
 Donc, pour ce TP, **Active Directory** est seulement nécessaire sur **DC**, et **DS** se concentre sur la gestion secondaire des enregistrements DNS sans nécessiter **Active Directory**.
+
+
+
+
+
+----------------------
+# Annexe 2:
+----------------------
+
+### Question
+- Lorsque j'exécute la commande **ipconfig /all** sur une machine qui fait partie du domaine **test.local**, est-ce que cette commande affichera les adresses IP des autres machines dans le domaine, ou seulement celle de la machine sur laquelle elle est exécutée ?
+
+
+### Réponse :
+
+
+- Non, lorsque tu utilises la commande **ipconfig /all** sur chaque machine, elle affichera uniquement la configuration réseau locale de la machine où la commande est exécutée. Chaque machine affichera **sa propre** adresse IP, son masque de sous-réseau, sa passerelle par défaut, et d'autres informations réseau, mais elle ne montrera pas directement les adresses IP des autres machines du domaine.
+
+Même si les deux machines font partie du même domaine **test.local**, elles ont chacune leur propre configuration réseau. Pour afficher les adresses IP des autres machines dans le même domaine, tu devras utiliser des commandes comme **ping** ou **nslookup** depuis l'une des machines pour interroger l'autre.
+
+En résumé :
+- **ipconfig /all** te montre uniquement la configuration réseau de la machine sur laquelle la commande est exécutée.
+- Si tu veux tester la connectivité entre deux machines (par exemple **DC** et **DS**), tu peux utiliser **ping** pour vérifier l'adresse IP de l'autre machine.
+
+
+
+
