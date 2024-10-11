@@ -51,7 +51,7 @@ Install-ADDSForest -DomainName "test.local" -DomainNetBiosName "test" -SafeModeA
 ```
 
 
-- Ici la création de **test.local** a bien été réalisée dans l'**Étape 1** sous la forme de la commande suivante :
+- Ici la création de **test.local** a bien été réalisée sous la forme de la commande suivante :
 
 ```powershell
 Install-ADDSForest -DomainName "test.local" -DomainNetBiosName "test" -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseSecurise123" -AsPlainText -Force) -InstallDNS
