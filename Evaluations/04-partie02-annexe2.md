@@ -1,6 +1,17 @@
 #  Bonus TP1 : Configuration de DNS avec Zones Directes et Inversées
 
 - Toutes les étapes sont  couvertes de manière chronologique et détaillée avec les commandes **PowerShell**.
+- Toutes les étapes nécessaires à la configuration de DNS avec zones directes et inversées sont couvertes dans ce plan détaillé.
+- Je vous présente quelques points de vérification supplémentaires pour être sûr que tout est bien pris en compte :
+
+1. **Promouvoir DC en tant que contrôleur de domaine** : Cette étape est bien réalisée.
+2. **Installation et configuration de DNS sur DC et DS** : Tous les éléments clés de la configuration DNS (zones directes et inversées, enregistrement PTR) sont présents.
+3. **Test de connectivité et de résolution DNS** : Des tests de connectivité et de résolution sont prévus avec **ping** et **nslookup**.
+4. **Redirecteur DNS** : La configuration du redirecteur pour les requêtes externes (vers 8.8.8.8) est incluse.
+
+- Toutes les étapes importantes pour atteindre les objectifs du TP sont bien présentes ici .
+
+
 
 # **Schéma de réseau :**
 ```
