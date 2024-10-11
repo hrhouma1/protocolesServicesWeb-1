@@ -147,7 +147,7 @@ Une **zone de recherche inversée** est une zone DNS qui permet de convertir une
 # Annexe :
 
 
-Voici une table en ASCII avec les commandes courantes que tu peux tester avec **nslookup** sur Windows, ainsi que quelques commandes avec **dig** si tu utilises un environnement Windows avec un outil comme WSL (Windows Subsystem for Linux) ou un autre moyen de faire fonctionner des commandes Linux.
+#### Table avec les commandes courantes que nous pouvons tester avec **nslookup** sur Windows +  quelques commandes avec **dig** si tu utilises un environnement Windows avec un outil comme WSL (Windows Subsystem for Linux) ou un autre moyen de faire fonctionner des commandes Linux.
 
 ---
 
