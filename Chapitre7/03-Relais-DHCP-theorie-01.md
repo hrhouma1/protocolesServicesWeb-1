@@ -1,6 +1,6 @@
 # Relais DHCP - Théorie 
 
-#### 1. Introduction au DHCP
+#### 1. Introduction et rappel au DHCP
 
 Le **DHCP** (Dynamic Host Configuration Protocol) est un protocole de gestion réseau qui permet à un serveur de distribuer dynamiquement des adresses IP et d'autres informations de configuration réseau aux clients qui s'y connectent. Lorsque des appareils (comme des ordinateurs, smartphones, imprimantes) se connectent à un réseau, ils utilisent DHCP pour obtenir automatiquement une adresse IP, ce qui facilite la gestion des réseaux et réduit le besoin de configuration manuelle.
 
