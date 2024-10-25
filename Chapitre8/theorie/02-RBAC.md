@@ -30,7 +30,7 @@
    - Auditer les permissions et accès avec les outils AD
    - Automatiser la gestion des permissions via PowerShell
 
-7. **Exercices Pratiques**
+# 7. **Exercices Pratiques**
    - Créer des rôles pour l’administration et l’accès en lecture seule
    - Tester les permissions dans un environnement de test
    - Vérification des permissions et tests d’accès
