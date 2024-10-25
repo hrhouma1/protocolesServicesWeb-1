@@ -61,10 +61,6 @@ Le Role-Based Access Control (RBAC) dans Windows Server et Active Directory perm
 
 
 
-Voici une version encore plus exhaustive pour les sections suivantes, avec des détails supplémentaires et les liens de retour à la table des matières dans chaque section pour faciliter la navigation.
-
----
-
 ### 3. Configuration de RBAC dans Windows Server
 [🔝 Retour à la Table des Matières](#📑-table-des-matières)
 
