@@ -46,7 +46,7 @@ Un domaine AD est organisé en différents conteneurs comme les unités d'organi
 <a href="#top">[Retour en haut](#)</a>
 
 ##### <a name="installation-ad"></a>Installation de l'AD
-Voici les étapes pour installer AD sur un serveur Windows Server.
+Voici les étapes pour installer AD sur un serveur Windows Server (document word dans omnivox)
 
 <a href="#top">[Retour en haut](#)</a>
 
