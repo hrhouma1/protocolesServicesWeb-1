@@ -151,3 +151,118 @@ Bien que le FTP reste utile dans certains contextes, ses limites en matière de 
 - **Moyen** : Employé principalement dans des contextes hérités ou limités.
 - **Peu populaire** : Usage rare, souvent limité à des niches techniques ou des besoins spécifiques.
 
+
+--------------
+-------------
+-----------------
+
+# Annexe 02 - analyse pour chaque protocole 
+
+
+*Tous les protocoles mentionnés peuvent être utilisés pour l'**upload** (téléversement) de fichiers sur Internet, mais leur usage varie en fonction du contexte, des besoins de sécurité, et de la facilité de mise en œuvre.*
+
+---
+
+### **1. FTP (File Transfer Protocol)**
+- **Usage** : Téléversement classique de fichiers vers un serveur.
+- **Avantages** :
+  - Simple et rapide.
+  - Compatible avec presque tous les clients et serveurs FTP.
+- **Inconvénients** :
+  - Non sécurisé (données et identifiants transmis en clair).
+  - Peu adapté aux environnements nécessitant de la confidentialité.
+- **Contexte** : Utilisé principalement dans des réseaux privés ou des systèmes hérités.
+
+---
+
+### **2. FTPS (FTP sécurisé via SSL/TLS)**
+- **Usage** : Téléversement sécurisé de fichiers vers un serveur.
+- **Avantages** :
+  - Chiffrement SSL/TLS protégeant les données en transit.
+  - Basé sur FTP, donc compatible avec la plupart des outils FTP.
+- **Inconvénients** :
+  - Configuration plus complexe (certificats SSL/TLS, pare-feu).
+- **Contexte** : Environnements professionnels où la sécurité est importante.
+
+---
+
+### **3. SFTP (SSH File Transfer Protocol)**
+- **Usage** : Téléversement sécurisé de fichiers via SSH.
+- **Avantages** :
+  - Très sécurisé (utilise SSH pour le chiffrement).
+  - Fonctionne sur un seul port (généralement le port 22), simplifiant la configuration des pare-feu.
+  - Compatible avec des outils modernes (FileZilla, WinSCP, etc.).
+- **Inconvénients** :
+  - Nécessite un serveur SSH configuré.
+- **Contexte** : Utilisé dans la majorité des systèmes modernes nécessitant sécurité et simplicité.
+
+---
+
+### **4. SCP (Secure Copy Protocol)**
+- **Usage** : Téléversement direct de fichiers via SSH.
+- **Avantages** :
+  - Très rapide et sécurisé (utilise également SSH).
+  - Idéal pour des transferts simples sans gestion de répertoires distants.
+- **Inconvénients** :
+  - Moins flexible (ne permet pas de naviguer dans les répertoires comme FTP ou SFTP).
+- **Contexte** : Téléversements rapides par ligne de commande dans des environnements techniques.
+
+---
+
+### **5. WebDAV (Web Distributed Authoring and Versioning)**
+- **Usage** : Téléversement de fichiers via HTTP/HTTPS.
+- **Avantages** :
+  - Intégré dans les navigateurs et certains systèmes d’exploitation.
+  - Peut utiliser HTTPS pour sécuriser les transferts.
+- **Inconvénients** :
+  - Nécessite une configuration serveur spécifique.
+- **Contexte** : Collaboration en ligne ou téléversement de fichiers sur des systèmes cloud privés.
+
+---
+
+### **6. Rsync**
+- **Usage** : Téléversement et synchronisation de fichiers.
+- **Avantages** :
+  - Très efficace pour synchroniser de gros ensembles de fichiers.
+  - Sécurisé s’il est utilisé avec SSH.
+- **Inconvénients** :
+  - Plus complexe à configurer (ligne de commande, scripts).
+- **Contexte** : Administration système et déploiement de données.
+
+---
+
+### **7. Cloud Storage (Google Drive, OneDrive, Dropbox, etc.)**
+- **Usage** : Téléversement de fichiers vers des plateformes en ligne.
+- **Avantages** :
+  - Très simple pour l’utilisateur final.
+  - Sécurisé par défaut (HTTPS, authentification).
+- **Inconvénients** :
+  - Dépendance aux fournisseurs de services.
+- **Contexte** : Utilisation personnelle et collaborative (documents partagés, etc.).
+
+---
+
+### **8. TFTP (Trivial File Transfer Protocol)**
+- **Usage** : Téléversement simple, souvent utilisé pour les appareils réseaux (routeurs, commutateurs).
+- **Avantages** :
+  - Très léger, fonctionne dans des environnements limités.
+- **Inconvénients** :
+  - Aucune sécurité.
+  - Ne convient pas aux transferts Internet traditionnels.
+- **Contexte** : Équipements réseau et applications spécifiques.
+
+---
+
+### **Résumé des usages pour l'upload sur Internet :**
+
+| **Protocole**   | **Adapté à l'upload sur Internet ?** | **Contexte idéal**                                |
+|------------------|-------------------------------------|--------------------------------------------------|
+| FTP              | Oui, mais pas sécurisé             | Systèmes hérités ou réseaux privés.              |
+| FTPS             | Oui                                | Transferts sécurisés en entreprise.              |
+| SFTP             | Oui                                | Environnements modernes et sécurisés.            |
+| SCP              | Oui                                | Transferts rapides par ligne de commande.        |
+| WebDAV           | Oui                                | Collaboration en ligne ou systèmes cloud.        |
+| Rsync            | Oui, avec SSH                     | Synchronisation et administration système.       |
+| Cloud Storage    | Oui                                | Usage personnel ou professionnel collaboratif.   |
+| TFTP             | Non (peu sécurisé)                | Équipements réseau ou téléversements locaux.     |
+
