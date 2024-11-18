@@ -116,3 +116,38 @@ Le FTPS est une extension du FTP qui intègre le chiffrement SSL/TLS (Secure Soc
 
 #### **Conclusion**
 Bien que le FTP reste utile dans certains contextes, ses limites en matière de sécurité ont conduit à son remplacement progressif par des protocoles sécurisés comme FTPS et SFTP. Il est essentiel de choisir le bon protocole en fonction des besoins en sécurité et en compatibilité.
+
+
+
+# Annexe 01  - ALternatives de FTP
+
+*Cette table présente uniquement les alternatives directes et comparables au FTP, comme FTPS, SFTP, et d'autres protocoles conçus pour le transfert ou la gestion de fichiers. Les autres technologies mentionnées offrent des fonctionnalités complémentaires mais peuvent aussi répondre à certains cas d'usage similaires.*
+
+```
++------------------+--------------------------------------+--------------------------+
+| Protocole        | Caractéristiques                    | Popularité               |
++------------------+--------------------------------------+--------------------------+
+| FTP              | Transfert de fichiers basique       | Moyen (sécurité faible)  |
++------------------+--------------------------------------+--------------------------+
+| FTPS             | FTP avec chiffrement SSL/TLS        | Populaire (entreprises)  |
++------------------+--------------------------------------+--------------------------+
+| SFTP             | Basé sur SSH, sécurisé              | Très populaire (modernité et sécurité) |
++------------------+--------------------------------------+--------------------------+
+| SCP              | Copie sécurisée via SSH             | Moins populaire (limité aux transferts directs) |
++------------------+--------------------------------------+--------------------------+
+| WebDAV           | Extension HTTP pour gestion de fichiers | Populaire (collaboratif et intégré aux systèmes) |
++------------------+--------------------------------------+--------------------------+
+| Rsync            | Synchronisation efficace des fichiers | Populaire (administrateurs systèmes) |
++------------------+--------------------------------------+--------------------------+
+| Cloud Storage    | Services comme Google Drive, OneDrive, etc. | Très populaire (usages modernes et collaboratifs) |
++------------------+--------------------------------------+--------------------------+
+| TFTP             | FTP simplifié (sans authentification) | Peu populaire (utilisé pour équipements réseau) |
++------------------+--------------------------------------+--------------------------+
+```
+
+### **Légende de popularité** :
+- **Très populaire** : Largement utilisé dans les environnements modernes, bien adapté aux besoins actuels.
+- **Populaire** : Couramment utilisé dans des cas spécifiques ou dans des environnements professionnels.
+- **Moyen** : Employé principalement dans des contextes hérités ou limités.
+- **Peu populaire** : Usage rare, souvent limité à des niches techniques ou des besoins spécifiques.
+
