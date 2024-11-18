@@ -1,4 +1,4 @@
-### **Cours détaillé : Protocole FTP et variantes sécurisées**
+# **Protocole FTP et variantes sécurisées**
 
 ---
 
