@@ -132,7 +132,7 @@ Chaque composant sera sur un réseau **VLAN distinct**, avec une plage d’adres
 
 ---
 
-### **Schéma Réseau ASCII Corrigé**
+### **Schéma Réseau**
 
 ```plaintext
                      +----------------------+
