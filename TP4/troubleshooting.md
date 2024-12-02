@@ -1,4 +1,4 @@
-- faire
+- Excécutez
 
 ```html
 cd /var/www/html
